@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lastamp — Battery is your life</title>
+<meta name="description" content="Lastamp: a neon arcade shooter for iPhone where your real battery is your life. Coming soon to the App Store.">
+<meta name="theme-color" content="#04040C">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://lastamp.github.io/">
+<meta property="og:title" content="Lastamp — Battery is your life">
+<meta property="og:description" content="Lastamp: a neon arcade shooter for iPhone where your real battery is your life. Coming soon to the App Store.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lastamp.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2304040C'/%3E%3Crect x='18' y='14' width='28' height='40' rx='5' fill='none' stroke='%2326F2FF' stroke-width='4'/%3E%3Crect x='26' y='8' width='12' height='6' rx='2' fill='%2326F2FF'/%3E%3Cpath d='M34 20 24 36h8l-2 12 10-16h-8z' fill='%2340FF8C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Tektur:wght@500;700;900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#04040C;--bg2:#0A0A18;--card:rgba(255,255,255,.035);--line:rgba(255,255,255,.12);
+--text:rgba(255,255,255,.88);--dim:rgba(255,255,255,.66);--cyan:#26F2FF;--green:#40FF8C;--amber:#FFB31F;
+--red:#FF2954;--magenta:#FF38D1;--violet:#946BFF;
+--display:"Tektur","Orbitron","Eurostile","Arial Narrow",system-ui,sans-serif;
+--body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+--mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.65 var(--body);overflow-x:hidden}
+:lang(ja) body,body:lang(ja){font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",var(--body);line-height:1.8}
+a{color:var(--cyan);text-underline-offset:3px}
+a:hover{color:#fff}
+a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+b,strong{color:#fff;font-weight:600}
+.ph{color:var(--amber);font-family:var(--mono);font-weight:700;font-size:.92em}
+.skip{position:absolute;left:-999px;top:8px;background:var(--cyan);color:#000;padding:8px 12px;border-radius:8px;z-index:50}
+.skip:focus{left:16px}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:40;
+background:repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0 1px,transparent 1px 3px)}
+/* top bar */
+.bar{position:sticky;top:0;z-index:30;background:rgba(4,4,12,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(38,242,255,.18)}
+.bar-in{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:14px}
+.logo{font:900 17px/1 var(--display);letter-spacing:.18em;color:#fff;text-decoration:none;white-space:nowrap;
+text-shadow:0 0 10px rgba(38,242,255,.7)}
+.logo i{font-style:normal;color:var(--cyan)}
+.langs{margin-left:auto;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;min-width:0;padding:2px}
+.langs::-webkit-scrollbar{display:none}
+@media (max-width:719px){.langs{-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent);padding-right:18px}}
+.langs a{flex:none;font:700 12px/1 var(--mono);letter-spacing:.06em;color:var(--dim);text-decoration:none;
+padding:8px 9px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);text-transform:uppercase}
+.langs a:hover{color:#fff;border-color:rgba(38,242,255,.5)}
+.langs a[aria-current="true"]{color:#001014;background:var(--cyan);border-color:var(--cyan);box-shadow:0 0 14px rgba(38,242,255,.55)}
+/* hero */
+.hero{position:relative;overflow:hidden;text-align:center;padding:64px 16px 88px;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;
+background:radial-gradient(60% 55% at 50% 30%,rgba(38,242,255,.16),transparent 70%),
+radial-gradient(40% 40% at 80% 80%,rgba(255,56,209,.14),transparent 70%)}
+.grid{position:absolute;left:-50%;right:-50%;bottom:-2px;height:55%;z-index:-1;
+background-image:linear-gradient(rgba(255,56,209,.55) 1px,transparent 1px),linear-gradient(90deg,rgba(38,242,255,.45) 1px,transparent 1px);
+background-size:48px 48px;transform:perspective(320px) rotateX(62deg);transform-origin:50% 100%;
+-webkit-mask-image:linear-gradient(to top,#000 10%,transparent 90%);mask-image:linear-gradient(to top,#000 10%,transparent 90%);
+animation:grid 2.4s linear infinite}
+@keyframes grid{to{background-position:0 48px,0 0}}
+.kicker{display:inline-block;font:700 11px/1 var(--mono);letter-spacing:.28em;color:var(--green);text-transform:uppercase;
+border:1px solid rgba(64,255,140,.5);border-radius:999px;padding:7px 12px;background:rgba(64,255,140,.08);margin-bottom:22px}
+.glitch{position:relative;display:inline-block;margin:0;font:900 clamp(46px,14vw,112px)/1 var(--display);letter-spacing:.08em;
+color:#fff;text-shadow:0 0 18px rgba(38,242,255,.75),0 0 42px rgba(38,242,255,.35)}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;pointer-events:none}
+.glitch::before{color:var(--red);transform:translate(-3px,0);mix-blend-mode:screen;opacity:.8;animation:gl1 3.2s infinite steps(1)}
+.glitch::after{color:var(--cyan);transform:translate(3px,0);mix-blend-mode:screen;opacity:.8;animation:gl2 2.7s infinite steps(1)}
+@keyframes gl1{0%,86%,100%{clip-path:inset(0 0 0 0);transform:translate(-3px,0)}88%{clip-path:inset(20% 0 55% 0);transform:translate(-9px,-2px)}91%{clip-path:inset(62% 0 8% 0);transform:translate(6px,1px)}}
+@keyframes gl2{0%,80%,100%{clip-path:inset(0 0 0 0);transform:translate(3px,0)}83%{clip-path:inset(8% 0 70% 0);transform:translate(9px,1px)}86%{clip-path:inset(45% 0 30% 0);transform:translate(-6px,-1px)}}
+.sub{margin:18px 0 0;font:700 clamp(18px,5vw,30px)/1.2 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);
+text-shadow:0 0 12px rgba(38,242,255,.55)}
+:lang(ja) .sub{letter-spacing:.06em}
+.tag{margin:14px auto 0;font:500 13px/1.4 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+.meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{font:700 11.5px/1 var(--mono);letter-spacing:.08em;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,179,31,.6);
+color:var(--amber);background:rgba(255,179,31,.08)}
+.chip.c{border-color:rgba(38,242,255,.55);color:var(--cyan);background:rgba(38,242,255,.07)}
+/* layout */
+main{max-width:880px;margin:0 auto;padding:0 16px 64px}
+.lead{font-size:17.5px;color:#fff;margin:0 0 28px}
+.h2{font:900 20px/1.25 var(--display);letter-spacing:.1em;text-transform:uppercase;color:#fff;margin:0 0 14px}
+:lang(ja) .h2{letter-spacing:.04em}
+.glance{display:grid;gap:14px;grid-template-columns:1fr;margin:0 0 30px}
+.gcard{--c:var(--cyan);position:relative;border:1px solid color-mix(in srgb,var(--c) 55%,transparent);border-radius:16px;padding:18px 18px 12px;
+background:linear-gradient(180deg,color-mix(in srgb,var(--c) 10%,transparent),rgba(255,255,255,.02))}
+.gcard h3{margin:0 0 10px;font:700 13px/1.2 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--c);
+display:flex;align-items:center;gap:9px}
+.gcard h3::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--c);box-shadow:0 0 10px var(--c)}
+.gcard ul{margin:0;padding:0;list-style:none}
+.gcard li{position:relative;padding:0 0 9px 18px;font-size:15px;color:var(--text)}
+.gcard li::before{position:absolute;left:0;top:0;color:var(--c);font:700 14px/1.65 var(--mono)}
+.gcard.amber{--c:var(--amber)}.gcard.amber li::before{content:"+"}
+.gcard.green{--c:var(--green)}.gcard.green li::before{content:"\00d7"}
+.gcard.cyan{--c:var(--cyan)}.gcard.cyan li::before{content:">"}
+.toc{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card);margin:0 0 38px}
+.toc ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr;gap:2px 22px;counter-reset:t}
+.toc li{counter-increment:t}
+.toc a{display:flex;gap:10px;padding:7px 0;color:var(--text);text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.08)}
+.toc a::before{content:counter(t,decimal-leading-zero);font:700 12px/1.9 var(--mono);color:var(--cyan);flex:none}
+.toc a:hover{color:#fff}
+section.s{--c:var(--cyan);position:relative;margin:0 0 34px;padding-left:18px;scroll-margin-top:76px}
+section.s::before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:3px;border-radius:3px;
+background:linear-gradient(var(--c),transparent);box-shadow:0 0 12px var(--c)}
+section.s.green{--c:var(--green)}section.s.amber{--c:var(--amber)}section.s.magenta{--c:var(--magenta)}section.s.red{--c:var(--red)}
+.s h2{margin:0 0 12px;font:900 clamp(19px,4.6vw,24px)/1.25 var(--display);letter-spacing:.06em;color:#fff;text-transform:uppercase}
+:lang(ja) .s h2{letter-spacing:.02em}
+.s h2 .n{display:inline-block;margin-right:10px;font:700 12px/1 var(--mono);letter-spacing:.1em;color:var(--c);
+border:1px solid var(--c);border-radius:6px;padding:5px 7px;vertical-align:4px;box-shadow:0 0 10px color-mix(in srgb,var(--c) 45%,transparent)}
+.s h3{margin:18px 0 6px;font:700 15px/1.3 var(--mono);letter-spacing:.06em;color:var(--c)}
+.s p{margin:0 0 12px}
+.s ul{margin:0 0 12px;padding-left:20px}
+.s li{margin:0 0 7px}
+.s li::marker{color:var(--c)}
+.note{border:1px solid rgba(255,179,31,.45);background:rgba(255,179,31,.07);border-radius:12px;padding:12px 14px;margin:0 0 12px}
+.path{font:600 .9em var(--mono);color:#fff;background:rgba(255,255,255,.07);padding:1px 6px;border-radius:5px;white-space:normal}
+.sdk{display:grid;grid-template-columns:1fr;gap:12px;margin:6px 0 12px}
+.card{--c:var(--cyan);border:1px solid color-mix(in srgb,var(--c) 45%,transparent);border-radius:14px;padding:16px;background:rgba(0,0,0,.35)}
+.card .top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.card h3{margin:0;font:900 16px/1.2 var(--display);letter-spacing:.06em;color:#fff}
+.card .role{font:700 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--c);border:1px solid var(--c);
+border-radius:999px;padding:5px 8px;background:color-mix(in srgb,var(--c) 10%,transparent)}
+.card p{margin:0 0 8px;font-size:14.5px;color:var(--text)}
+.card .links{display:flex;flex-wrap:wrap;gap:6px 14px;font:600 13px/1.4 var(--mono)}
+.card.magenta{--c:var(--magenta)}.card.amber{--c:var(--amber)}.card.green{--c:var(--green)}.card.violet{--c:var(--violet)}
+.foot{border-top:1px solid var(--line);margin-top:40px;padding:22px 16px 40px;text-align:center;font:500 12.5px/1.7 var(--mono);color:var(--dim)}
+.foot a{color:var(--dim)}
+.foot nav{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin-bottom:8px}
+.top-btn{display:inline-block;margin-top:6px;font:700 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+/* landing / support */
+.btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border-radius:14px;
+font:700 14px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--cyan);
+color:var(--cyan);background:rgba(38,242,255,.08)}
+.btn.fill{color:#001014;background:linear-gradient(var(--cyan),#1bb8c2);box-shadow:0 0 18px rgba(38,242,255,.45)}
+.btn:hover{color:#fff}.btn.fill:hover{color:#000}
+.store{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:10px 16px;border-radius:12px;border:1px dashed rgba(255,255,255,.35);
+font:700 13px/1.3 var(--mono);letter-spacing:.08em;color:#fff;text-transform:uppercase}
+.store .dot{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber);animation:blink 1.4s steps(2) infinite}
+@keyframes blink{50%{opacity:.25}}
+.pitch{max-width:560px;margin:18px auto 0;color:var(--dim);font-size:16px}
+.faq details{border:1px solid var(--line);border-radius:14px;background:var(--card);margin:0 0 10px;padding:0 16px}
+.faq summary{cursor:pointer;list-style:none;padding:15px 26px 15px 0;position:relative;font:600 16px/1.4 var(--body);color:#fff}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:12px;font:700 20px/1 var(--mono);color:var(--cyan)}
+.faq details[open] summary::after{content:"\2212"}
+.faq details>div{padding:0 0 14px;color:var(--text)}
+.faq p{margin:0 0 10px}
+.contact{margin-top:26px;border:1px solid rgba(64,255,140,.5);border-radius:16px;padding:18px;background:rgba(64,255,140,.06);text-align:center}
+.contact .btn{margin-top:10px;border-color:var(--green);color:var(--green);background:rgba(64,255,140,.08)}
+[hidden]{display:none!important}
+@media (min-width:720px){
+ .glance{grid-template-columns:repeat(3,1fr)}
+ .toc ol{grid-template-columns:1fr 1fr}
+ .sdk{grid-template-columns:1fr 1fr}
+ .hero{padding:88px 16px 120px}
+}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ html{scroll-behavior:auto}
+}
+@media print{
+ :root{--text:#111;--dim:#444}
+ body{background:#fff;color:#111;font-size:11pt}
+ body::after,.bar,.grid,.toc,.skip,.top-btn,.foot nav{display:none!important}
+ .hero{padding:0 0 12pt;text-align:left}
+ .hero::before{display:none}
+ .glitch{font-size:28pt;color:#000;text-shadow:none}
+ .glitch::before,.glitch::after{display:none}
+ .sub,.tag,.chip,.kicker{color:#000;text-shadow:none;border-color:#999;background:none}
+ .lead,b,strong,.s h2,.card h3,.h2,.chip.c,.gcard li,.s p,.s li,.card p{color:#000}
+ .meta{justify-content:flex-start}
+ a{color:#000}
+ .s h2 .n,.card .role,.gcard h3,.s h3{color:#000;border-color:#000;box-shadow:none}
+ section.s::before{background:#000;box-shadow:none}
+ .gcard,.card,.note{background:none;border-color:#999;break-inside:avoid}
+ .glance{grid-template-columns:repeat(3,1fr)}
+ .sdk{grid-template-columns:1fr 1fr}
+ .path{background:none;color:#000}
+ .ph{color:#000}
+ section.s{break-inside:auto}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar"><div class="bar-in">
+<a class="logo" href="/">LAST<i>AMP</i></a>
+<nav class="langs" aria-label="Language"><a href="#en" data-set="en" hreflang="en" lang="en" aria-current="true" title="English">EN</a><a href="#ru" data-set="ru" hreflang="ru" lang="ru" aria-current="false" title="Русский">RU</a><a href="#uk" data-set="uk" hreflang="uk" lang="uk" aria-current="false" title="Українська">UK</a><a href="#es" data-set="es" hreflang="es" lang="es" aria-current="false" title="Español">ES</a><a href="#pt-BR" data-set="pt-BR" hreflang="pt-BR" lang="pt-BR" aria-current="false" title="Português (Brasil)">PT</a><a href="#de" data-set="de" hreflang="de" lang="de" aria-current="false" title="Deutsch">DE</a><a href="#fr" data-set="fr" hreflang="fr" lang="fr" aria-current="false" title="Français">FR</a><a href="#ja" data-set="ja" hreflang="ja" lang="ja" aria-current="false" title="日本語">JA</a></nav>
+</div></header>
+<article data-lang="en" lang="en" data-title="Lastamp — Battery is your life"><div class="hero" style="min-height:calc(100vh - 60px);min-height:calc(100svh - 60px);display:flex;flex-direction:column;align-items:center;justify-content:center"><h1 class="glitch" data-text="LASTAMP">LASTAMP</h1><p class="sub">Battery is your life</p><div class="store"><span class="dot" aria-hidden="true"></span>Coming soon to the App Store</div><p class="pitch">A neon arcade shooter where your iPhone’s real charge is your HP. Full battery, big shield. Nearly empty, brutal damage.</p><div class="btns"><a class="btn fill" href="/privacy/#en">Privacy Policy</a><a class="btn" href="/support/#en">Support</a></div><div class="grid" aria-hidden="true"></div></div><footer class="foot"><nav><a href="/">Home</a><a href="/privacy/#en">Privacy Policy</a><a href="/support/#en">Support</a><a href="mailto:lastamp.app@gmail.com">lastamp.app@gmail.com</a></nav><div>© 2026 Artem · Lastamp</div></footer></article><article data-lang="ru" lang="ru" data-title="Lastamp — Твоя батарея — твоя жизнь" hidden><div class="hero" style="min-height:calc(100vh - 60px);min-height:calc(100svh - 60px);display:flex;flex-direction:column;align-items:center;justify-content:center"><h1 class="glitch" data-text="LASTAMP">LASTAMP</h1><p class="sub">Твоя батарея — твоя жизнь</p><div class="store"><span class="dot" aria-hidden="true"></span>Скоро в App Store</div><p class="pitch">Неоновый аркадный шутер, где реальный заряд iPhone — это твоё HP. Полная батарея — мощный щит. Почти ноль — сокрушительный урон.</p><div class="btns"><a class="btn fill" href="/privacy/#ru">Политика конфиденциальности</a><a class="btn" href="/support/#ru">Поддержка</a></div><div class="grid" aria-hidden="true"></div></div><footer class="foot"><nav><a href="/">Главная</a><a href="/privacy/#ru">Политика конфиденциальности</a><a href="/support/#ru">Поддержка</a><a href="mailto:lastamp.app@gmail.com">lastamp.app@gmail.com</a></nav><div>© 2026 Artem · Lastamp</div></footer></article><article data-lang="uk" lang="uk" data-title="Lastamp — Твоя батарея — твоє життя" hidden><div class="hero" style="min-height:calc(100vh - 60px);min-height:calc(100svh - 60px);display:flex;flex-direction:column;align-items:center;justify-content:center"><h1 class="glitch" data-text="LASTAMP">LASTAMP</h1><p class="sub">Твоя батарея — твоє життя</p><div class="store"><span class="dot" aria-hidden="true"></span>Незабаром в App Store</div><p class="pitch">Неоновий аркадний шутер, де реальний заряд iPhone — це твоє HP. Повна батарея — потужний щит. Майже нуль — нищівна шкода.</p><div class="btns"><a class="btn fill" href="/privacy/#uk">Політика конфіденційності</a><a class="btn" href="/support/#uk">Підтримка</a></div><div class="grid" aria-hidden="true"></div></div><footer class="foot"><nav><a href="/">Головна</a><a href="/privacy/#uk">Політика конфіденційності</a><a href="/support/#uk">Підтримка</a><a href="mailto:lastamp.app@gmail.com">lastamp.app@gmail.com</a></nav><div>© 2026 Artem · Lastamp</div></footer></article><article data-lang="es" lang="es" data-title="Lastamp — Tu batería es tu vida" hidden><div class="hero" style="min-height:calc(100vh - 60px);min-height:calc(100svh - 60px);display:flex;flex-direction:column;align-items:center;justify-content:center"><h1 class="glitch" data-text="LASTAMP">LASTAMP</h1><p class="sub">Tu batería es tu vida</p><div class="store"><span class="dot" aria-hidden="true"></span>Próximamente en el App Store</div><p class="pitch">Un shooter arcade de neón en el que la carga real de tu iPhone es tu vida. Batería llena, escudo enorme. Casi vacía, daño brutal.</p><div class="btns"><a class="btn fill" href="/privacy/#es">Política de privacidad</a><a class="btn" href="/support/#es">Soporte</a></div><div class="grid" aria-hidden="true"></div></div><footer class="foot"><nav><a href="/">Inicio</a><a href="/privacy/#es">Política de privacidad</a><a href="/support/#es">Soporte</a><a href="mailto:lastamp.app@gmail.com">lastamp.app@gmail.com</a></nav><div>© 2026 Artem · Lastamp</div></footer></article><article data-lang="pt-BR" lang="pt-BR" data-title="Lastamp — Sua bateria é sua vida" hidden><div class="hero" style="min-height:calc(100vh - 60px);min-height:calc(100svh - 60px);display:flex;flex-direction:column;align-items:center;justify-content:center"><h1 class="glitch" data-text="LASTAMP">LASTAMP</h1><p class="sub">Sua bateria é sua vida</p><div class="store"><span class="dot" aria-hidden="true"></span>Em breve na App Store</div><p class="pitch">Um shooter arcade neon em que a carga real do seu iPhone é a sua vida. Bateria cheia, escudo enorme. Quase zerada, dano brutal.</p><div class="btns"><a class="btn fill" href="/privacy/#pt-BR">Política de Privacidade</a><a class="btn" href="/support/#pt-BR">Suporte</a></div><div class="grid" aria-hidden="true"></div></div><footer class="foot"><nav><a href="/">Início</a><a href="/privacy/#pt-BR">Política de Privacidade</a><a href="/support/#pt-BR">Suporte</a><a href="mailto:lastamp.app@gmail.com">lastamp.app@gmail.com</a></nav><div>© 2026 Artem · Lastamp</div></footer></article><article data-lang="de" lang="de" data-title="Lastamp — Dein Akku ist dein Leben" hidden><div class="hero" style="min-height:calc(100vh - 60px);min-height:calc(100svh - 60px);display:flex;flex-direction:column;align-items:center;justify-content:center"><h1 class="glitch" data-text="LASTAMP">LASTAMP</h1><p class="sub">Dein Akku ist dein Leben</p><div class="store"><span class="dot" aria-hidden="true"></span>Bald im App Store</div><p class="pitch">Ein Neon-Arcade-Shooter, in dem die echte Ladung deines iPhones deine HP ist. Voller Akku, starker Schild. Fast leer, brutaler Schaden.</p><div class="btns"><a class="btn fill" href="/privacy/#de">Datenschutzerklärung</a><a class="btn" href="/support/#de">Support</a></div><div class="grid" aria-hidden="true"></div></div><footer class="foot"><nav><a href="/">Start</a><a href="/privacy/#de">Datenschutzerklärung</a><a href="/support/#de">Support</a><a href="mailto:lastamp.app@gmail.com">lastamp.app@gmail.com</a></nav><div>© 2026 Artem · Lastamp</div></footer></article><article data-lang="fr" lang="fr" data-title="Lastamp — Ta batterie, c’est ta vie" hidden><div class="hero" style="min-height:calc(100vh - 60px);min-height:calc(100svh - 60px);display:flex;flex-direction:column;align-items:center;justify-content:center"><h1 class="glitch" data-text="LASTAMP">LASTAMP</h1><p class="sub">Ta batterie, c’est ta vie</p><div class="store"><span class="dot" aria-hidden="true"></span>Bientôt sur l’App Store</div><p class="pitch">Un shoot’em up arcade néon où la charge réelle de ton iPhone, ce sont tes PV. Batterie pleine, gros bouclier. Presque vide, dégâts dévastateurs.</p><div class="btns"><a class="btn fill" href="/privacy/#fr">Politique de confidentialité</a><a class="btn" href="/support/#fr">Assistance</a></div><div class="grid" aria-hidden="true"></div></div><footer class="foot"><nav><a href="/">Accueil</a><a href="/privacy/#fr">Politique de confidentialité</a><a href="/support/#fr">Assistance</a><a href="mailto:lastamp.app@gmail.com">lastamp.app@gmail.com</a></nav><div>© 2026 Artem · Lastamp</div></footer></article><article data-lang="ja" lang="ja" data-title="Lastamp — バッテリーは君の命" hidden><div class="hero" style="min-height:calc(100vh - 60px);min-height:calc(100svh - 60px);display:flex;flex-direction:column;align-items:center;justify-content:center"><h1 class="glitch" data-text="LASTAMP">LASTAMP</h1><p class="sub">バッテリーは君の命</p><div class="store"><span class="dot" aria-hidden="true"></span>App Storeにて近日配信</div><p class="pitch">iPhoneの実際のバッテリー残量がHPになる、ネオンのアーケードシューティング。満充電なら鉄壁のシールド、残りわずかなら圧倒的な火力。</p><div class="btns"><a class="btn fill" href="/privacy/#ja">プライバシーポリシー</a><a class="btn" href="/support/#ja">サポート</a></div><div class="grid" aria-hidden="true"></div></div><footer class="foot"><nav><a href="/">ホーム</a><a href="/privacy/#ja">プライバシーポリシー</a><a href="/support/#ja">サポート</a><a href="mailto:lastamp.app@gmail.com">lastamp.app@gmail.com</a></nav><div>© 2026 Artem · Lastamp</div></footer></article>
+<script>
+(function(){
+var L=['en','ru','uk','es','pt-BR','de','fr','ja'];
+var d=document.documentElement;
+function norm(x){for(var i=0;i<L.length;i++){if(L[i].toLowerCase()===x.toLowerCase())return L[i];}
+ var p=x.toLowerCase().split('-')[0];for(var j=0;j<L.length;j++){if(L[j].toLowerCase().split('-')[0]===p)return L[j];}return null}
+function fromHash(){var h='';try{h=decodeURIComponent(location.hash.slice(1));}catch(e){}
+ for(var i=0;i<L.length;i++){if(h===L[i]||h.indexOf(L[i]+'_')===0)return L[i];}return null}
+function fromNav(){var a=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'en'];
+ for(var i=0;i<a.length;i++){var n=norm(a[i]||'');if(n)return n;}return null}
+function stored(){try{var s=localStorage.getItem('lastamp.lang');return s&&L.indexOf(s)>=0?s:null}catch(e){return null}}
+function set(l,user){
+ var blocks=document.querySelectorAll('[data-lang]');
+ for(var i=0;i<blocks.length;i++){blocks[i].hidden=blocks[i].getAttribute('data-lang')!==l;}
+ d.lang=l;
+ var a=document.querySelector('[data-lang="'+l+'"][data-title]');if(a)document.title=a.getAttribute('data-title');
+ var b=document.querySelectorAll('.langs a');
+ for(var k=0;k<b.length;k++){b[k].setAttribute('aria-current',b[k].getAttribute('data-set')===l?'true':'false');}
+ if(user){try{localStorage.setItem('lastamp.lang',l)}catch(e){}
+  if(fromHash()!==l){try{history.replaceState(null,'','#'+l)}catch(e){location.hash=l}}}
+}
+document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('.langs a');
+ if(!t)return;e.preventDefault();set(t.getAttribute('data-set'),true);});
+window.addEventListener('hashchange',function(){var h=fromHash();if(h&&h!==d.lang)set(h,false);});
+var h=fromHash();
+set(h||stored()||fromNav()||'en',false);
+if(h){try{localStorage.setItem('lastamp.lang',h)}catch(e){}
+ var el=document.getElementById(location.hash.slice(1));if(el&&el.tagName!=='ARTICLE'&&el.scrollIntoView)setTimeout(function(){try{el.scrollIntoView({behavior:'instant',block:'start'})}catch(e){el.scrollIntoView()}},0);}
+})();
+</script>
+</body>
+</html>
