@@ -38,7 +38,11 @@ Tick **Enforce HTTPS** if it is shown.
 ## 4. Wire it into the app and the store
 
 - `Config/Lastamp-Info.plist` → `LastampPrivacyPolicyURL` = `https://lastamp.github.io/privacy/`
-  (the in-app menu link and the AppLovin consent flow both use it).
+  (the in-app menu link uses it; put the same URL into the AdMob GDPR message: AdMob → Privacy & messaging).
+- `site/app-ads.txt` (served at `https://lastamp.github.io/app-ads.txt`): AdMob checks it on the developer website listed
+  in the App Store. Replace `pub-XXXXXXXXXXXXXXXX` with your AdMob publisher ID (AdMob → Settings → Account information),
+  keep `f08c47fec0942fa0` (Google's certification ID). The file must stay at the site root, not in a subfolder.
+  `docs/tools/site_src/build.py` does not generate or delete it.
 - App Store Connect → App Information → **Privacy Policy URL** = the same URL; **Support URL** = `https://lastamp.github.io/support/`;
   Marketing URL (optional) = `https://lastamp.github.io/`.
 - App Privacy answers: `docs/store/app-privacy.md`.
