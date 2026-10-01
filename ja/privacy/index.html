@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>
+(function(){
+var A={"en":"/privacy/","ru":"/ru/privacy/","uk":"/uk/privacy/","es":"/es/privacy/","pt-BR":"/pt-br/privacy/","de":"/de/privacy/","fr":"/fr/privacy/","ja":"/ja/privacy/"},C='ja',K='lastamp.lang',G='lastamp.auto';
+function put(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function norm(x){x=(x||'').toLowerCase();var l;for(l in A){if(l.toLowerCase()===x)return l}
+ x=x.split('-')[0];for(l in A){if(l.toLowerCase().split('-')[0]===x)return l}return null}
+document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('a[data-lang]');
+ if(!t)return;put(K,t.getAttribute('data-lang'));try{sessionStorage.setItem(G,'1')}catch(x){}});
+document.addEventListener('DOMContentLoaded',function(){var a=document.querySelector('.langs [aria-current]'),n=a&&a.parentNode;
+ if(n&&n.scrollWidth>n.clientWidth)n.scrollLeft=a.offsetLeft-n.offsetLeft-(n.clientWidth-a.offsetWidth)/2});
+var first=false;try{first=!sessionStorage.getItem(G);sessionStorage.setItem(G,'1')}catch(e){first=false}
+if(C!=='en')return;
+var h='',hl=null,l;try{h=decodeURIComponent(location.hash.slice(1))}catch(e){}
+for(l in A){if(h===l||h.indexOf(l+'_')===0)hl=l}
+if(hl&&hl!=='en'){put(K,hl);location.replace(A[hl]+location.search+(h===hl?'':location.hash));return}
+if(hl||!first)return;
+var s=null;try{s=localStorage.getItem(K)}catch(e){}
+var t=s&&A[s]?s:null,n=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||''];
+for(var i=0;!t&&i<n.length;i++)t=norm(n[i]);
+if(t&&t!=='en')location.replace(A[t]+location.search);
+})();
+</script>
+<title>プライバシーポリシー — Lastamp</title>
+<meta name="description" content="本ポリシーでは、アプリと当方の提携先がどのようなデータを扱うのか、その目的、そしてお客様が選べることを説明します。要点：アカウントはなく、当方独自のサーバーもありません。ゲームの進行状況はお使いのiPhoneにのみ保存されます。無料版では広告が表示され、多くのゲームと同様に匿名の分析を利用しています。">
+<meta name="theme-color" content="#04040C">
+<meta name="color-scheme" content="dark">
+<link rel="preload" href="/fonts/tektur-latin-900.v5.3.0.woff2" as="font" type="font/woff2" crossorigin>
+<meta property="og:site_name" content="Lastamp">
+<meta property="og:title" content="プライバシーポリシー — Lastamp">
+<meta property="og:description" content="本ポリシーでは、アプリと当方の提携先がどのようなデータを扱うのか、その目的、そしてお客様が選べることを説明します。要点：アカウントはなく、当方独自のサーバーもありません。ゲームの進行状況はお使いのiPhoneにのみ保存されます。無料版では広告が表示され、多くのゲームと同様に匿名の分析を利用しています。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lastamp.github.io/ja/privacy/">
+<meta property="og:image" content="https://lastamp.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Lastamp — バッテリーは君の命">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2304040C'/%3E%3Crect x='18' y='14' width='28' height='40' rx='5' fill='none' stroke='%2326F2FF' stroke-width='4'/%3E%3Crect x='26' y='8' width='12' height='6' rx='2' fill='%2326F2FF'/%3E%3Cpath d='M34 20 24 36h8l-2 12 10-16h-8z' fill='%2340FF8C'/%3E%3C/svg%3E">
+<style>@font-face{font-family:"Tektur";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/tektur-cyrillic-700.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Tektur";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/tektur-latin-ext-700.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Tektur";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/tektur-latin-700.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Tektur";font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/tektur-cyrillic-900.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Tektur";font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/tektur-latin-ext-900.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Tektur";font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/tektur-latin-900.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-sans-cyrillic-400.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-sans-latin-ext-400.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-sans-latin-400.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/ibm-plex-sans-cyrillic-600.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/ibm-plex-sans-latin-ext-600.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/ibm-plex-sans-latin-600.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/jetbrains-mono-cyrillic-500.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/jetbrains-mono-latin-ext-500.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/jetbrains-mono-latin-500.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/jetbrains-mono-cyrillic-700.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/jetbrains-mono-latin-ext-700.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/jetbrains-mono-latin-700.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--bg:#04040C;--bg2:#0A0A18;--card:rgba(255,255,255,.035);--line:rgba(255,255,255,.12);
+--text:rgba(255,255,255,.88);--dim:rgba(255,255,255,.66);--cyan:#26F2FF;--green:#40FF8C;--amber:#FFB31F;
+--red:#FF2954;--magenta:#FF38D1;--violet:#946BFF;
+--display:"Tektur","Orbitron","Eurostile","Arial Narrow",system-ui,sans-serif;
+--body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+--mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.65 var(--body);overflow-x:hidden}
+:lang(ja) body,body:lang(ja){font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",var(--body);line-height:1.8}
+a{color:var(--cyan);text-underline-offset:3px}
+a:hover{color:#fff}
+a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+b,strong{color:#fff;font-weight:600}
+.ph{color:var(--amber);font-family:var(--mono);font-weight:700;font-size:.92em}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;font-family:system-ui,sans-serif}
+.skip{position:absolute;left:-999px;top:8px;background:var(--cyan);color:#000;padding:8px 12px;border-radius:8px;z-index:50}
+.skip:focus{left:16px}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:40;
+background:repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0 1px,transparent 1px 3px)}
+/* top bar */
+.bar{position:sticky;top:0;z-index:30;background:rgba(4,4,12,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(38,242,255,.18)}
+.bar-in{max-width:1080px;margin:0 auto;padding:4px 16px;display:flex;align-items:center;gap:14px}
+.logo{font:900 17px/1 var(--display);letter-spacing:.18em;color:#fff;text-decoration:none;white-space:nowrap;
+text-shadow:0 0 10px rgba(38,242,255,.7)}
+.logo i{font-style:normal;color:var(--cyan)}
+.langs{margin-left:auto;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;min-width:0;padding:6px}
+.langs::-webkit-scrollbar{display:none}
+@media (max-width:719px){.langs{-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent);padding-right:18px}}
+.langs a{position:relative;flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;
+font:700 12px/1 var(--mono);letter-spacing:.06em;color:var(--dim);text-decoration:none;
+padding:0 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);text-transform:uppercase}
+.langs a:hover{color:#fff;border-color:rgba(38,242,255,.5)}
+.langs a[aria-current="page"]{color:#001014;background:var(--cyan);border-color:var(--cyan);box-shadow:0 0 14px rgba(38,242,255,.55)}
+/* hero */
+.hero{position:relative;overflow:hidden;text-align:center;padding:64px 16px 88px;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;
+background:radial-gradient(60% 55% at 50% 30%,rgba(38,242,255,.16),transparent 70%),
+radial-gradient(40% 40% at 80% 80%,rgba(255,56,209,.14),transparent 70%)}
+.grid{position:absolute;left:-50%;right:-50%;bottom:-2px;height:55%;z-index:-1;
+background-image:linear-gradient(rgba(255,56,209,.55) 1px,transparent 1px),linear-gradient(90deg,rgba(38,242,255,.45) 1px,transparent 1px);
+background-size:48px 48px;transform:perspective(320px) rotateX(62deg);transform-origin:50% 100%;
+-webkit-mask-image:linear-gradient(to top,#000 10%,transparent 90%);mask-image:linear-gradient(to top,#000 10%,transparent 90%);
+animation:grid 2.4s linear infinite}
+@keyframes grid{to{background-position:0 48px,0 0}}
+.kicker{display:inline-block;font:700 11px/1 var(--mono);letter-spacing:.28em;color:var(--green);text-transform:uppercase;
+border:1px solid rgba(64,255,140,.5);border-radius:999px;padding:7px 12px;background:rgba(64,255,140,.08);margin-bottom:22px}
+.glitch{position:relative;display:inline-block;margin:0;font:900 clamp(46px,14vw,112px)/1 var(--display);letter-spacing:.08em;
+color:#fff;text-shadow:0 0 18px rgba(38,242,255,.75),0 0 42px rgba(38,242,255,.35)}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;pointer-events:none}
+.glitch::before{color:var(--red);transform:translate(-3px,0);mix-blend-mode:screen;opacity:.8;animation:gl1 3.2s infinite steps(1)}
+.glitch::after{color:var(--cyan);transform:translate(3px,0);mix-blend-mode:screen;opacity:.8;animation:gl2 2.7s infinite steps(1)}
+@keyframes gl1{0%,86%,100%{clip-path:inset(0 0 0 0);transform:translate(-3px,0)}88%{clip-path:inset(20% 0 55% 0);transform:translate(-9px,-2px)}91%{clip-path:inset(62% 0 8% 0);transform:translate(6px,1px)}}
+@keyframes gl2{0%,80%,100%{clip-path:inset(0 0 0 0);transform:translate(3px,0)}83%{clip-path:inset(8% 0 70% 0);transform:translate(9px,1px)}86%{clip-path:inset(45% 0 30% 0);transform:translate(-6px,-1px)}}
+.sub{margin:18px 0 0;font:700 clamp(18px,5vw,30px)/1.2 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);
+text-shadow:0 0 12px rgba(38,242,255,.55)}
+:lang(ja) .sub{letter-spacing:.06em}
+.tag{margin:14px auto 0;font:500 13px/1.4 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+.meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{font:700 11.5px/1 var(--mono);letter-spacing:.08em;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,179,31,.6);
+color:var(--amber);background:rgba(255,179,31,.08)}
+.chip.c{border-color:rgba(38,242,255,.55);color:var(--cyan);background:rgba(38,242,255,.07)}
+/* layout */
+.wrap{max-width:880px;margin:0 auto;padding:0 16px 64px}
+.lead{font-size:17.5px;color:#fff;margin:0 0 28px}
+.h2{font:900 20px/1.25 var(--display);letter-spacing:.1em;text-transform:uppercase;color:#fff;margin:0 0 14px}
+:lang(ja) .h2{letter-spacing:.04em}
+.glance{display:grid;gap:14px;grid-template-columns:1fr;margin:0 0 30px}
+.gcard{--c:var(--cyan);position:relative;border:1px solid color-mix(in srgb,var(--c) 55%,transparent);border-radius:16px;padding:18px 18px 12px;
+background:linear-gradient(180deg,color-mix(in srgb,var(--c) 10%,transparent),rgba(255,255,255,.02))}
+.gcard h3{margin:0 0 10px;font:700 13px/1.2 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--c);
+display:flex;align-items:center;gap:9px}
+.gcard h3::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--c);box-shadow:0 0 10px var(--c)}
+.gcard ul{margin:0;padding:0;list-style:none}
+.gcard li{position:relative;padding:0 0 9px 18px;font-size:15px;color:var(--text)}
+.gcard li::before{position:absolute;left:0;top:0;color:var(--c);font:700 14px/1.65 var(--mono)}
+.gcard.amber{--c:var(--amber)}.gcard.amber li::before{content:"+"}
+.gcard.green{--c:var(--green)}.gcard.green li::before{content:"\00d7"}
+.gcard.cyan{--c:var(--cyan)}.gcard.cyan li::before{content:">"}
+.toc{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card);margin:0 0 38px}
+.toc ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr;gap:2px 22px;counter-reset:t}
+.toc li{counter-increment:t}
+.toc a{display:flex;gap:10px;padding:7px 0;color:var(--text);text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.08)}
+.toc a::before{content:counter(t,decimal-leading-zero);font:700 12px/1.9 var(--mono);color:var(--cyan);flex:none}
+.toc a:hover{color:#fff}
+section.s{--c:var(--cyan);position:relative;margin:0 0 34px;padding-left:18px;scroll-margin-top:76px}
+section.s::before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:3px;border-radius:3px;
+background:linear-gradient(var(--c),transparent);box-shadow:0 0 12px var(--c)}
+section.s.green{--c:var(--green)}section.s.amber{--c:var(--amber)}section.s.magenta{--c:var(--magenta)}section.s.red{--c:var(--red)}
+.s h2{margin:0 0 12px;font:900 clamp(19px,4.6vw,24px)/1.25 var(--display);letter-spacing:.06em;color:#fff;text-transform:uppercase}
+:lang(ja) .s h2{letter-spacing:.02em}
+.s h2 .n{display:inline-block;margin-right:10px;font:700 12px/1 var(--mono);letter-spacing:.1em;color:var(--c);
+border:1px solid var(--c);border-radius:6px;padding:5px 7px;vertical-align:4px;box-shadow:0 0 10px color-mix(in srgb,var(--c) 45%,transparent)}
+.s h3{margin:18px 0 6px;font:700 15px/1.3 var(--mono);letter-spacing:.06em;color:var(--c)}
+.s p{margin:0 0 12px}
+.s ul{margin:0 0 12px;padding-left:20px}
+.s li{margin:0 0 7px}
+.s li::marker{color:var(--c)}
+.note{border:1px solid rgba(255,179,31,.45);background:rgba(255,179,31,.07);border-radius:12px;padding:12px 14px;margin:0 0 12px}
+.path{font:600 .9em var(--mono);color:#fff;background:rgba(255,255,255,.07);padding:1px 6px;border-radius:5px;white-space:normal}
+.sdk{display:grid;grid-template-columns:1fr;gap:12px;margin:6px 0 12px}
+.card{--c:var(--cyan);border:1px solid color-mix(in srgb,var(--c) 45%,transparent);border-radius:14px;padding:16px;background:rgba(0,0,0,.35)}
+.card .top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.card h3{margin:0;font:900 16px/1.2 var(--display);letter-spacing:.06em;color:#fff}
+.card .role{font:700 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--c);border:1px solid var(--c);
+border-radius:999px;padding:5px 8px;background:color-mix(in srgb,var(--c) 10%,transparent)}
+.card p{margin:0 0 8px;font-size:14.5px;color:var(--text)}
+.card .links{display:flex;flex-wrap:wrap;gap:6px 14px;font:600 13px/1.4 var(--mono)}
+.card.magenta{--c:var(--magenta)}.card.amber{--c:var(--amber)}.card.green{--c:var(--green)}.card.violet{--c:var(--violet)}
+.foot{border-top:1px solid var(--line);margin-top:40px;padding:22px 16px 40px;text-align:center;font:500 12.5px/1.7 var(--mono);color:var(--dim)}
+.foot a{color:var(--dim)}
+.foot nav{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin-bottom:8px}
+.top-btn{display:inline-block;margin-top:6px;font:700 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+/* landing / support */
+.btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border-radius:14px;
+font:700 14px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--cyan);
+color:var(--cyan);background:rgba(38,242,255,.08)}
+.btn.fill{color:#001014;background:linear-gradient(var(--cyan),#1bb8c2);box-shadow:0 0 18px rgba(38,242,255,.45)}
+.btn:hover{color:#fff}.btn.fill:hover{color:#000}
+.store{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:10px 16px;border-radius:12px;border:1px dashed rgba(255,255,255,.35);
+font:700 13px/1.3 var(--mono);letter-spacing:.08em;color:#fff;text-transform:uppercase}
+.store .dot{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber);animation:blink 1.4s steps(2) infinite}
+@keyframes blink{50%{opacity:.25}}
+.pitch{max-width:560px;margin:18px auto 0;color:var(--dim);font-size:16px}
+.faq details{border:1px solid var(--line);border-radius:14px;background:var(--card);margin:0 0 10px;padding:0 16px}
+.faq summary{cursor:pointer;list-style:none;padding:15px 26px 15px 0;position:relative;font:600 16px/1.4 var(--body);color:#fff}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:12px;font:700 20px/1 var(--mono);color:var(--cyan)}
+.faq details[open] summary::after{content:"\2212"}
+.faq details>div{padding:0 0 14px;color:var(--text)}
+.faq p{margin:0 0 10px}
+.contact{margin-top:26px;border:1px solid rgba(64,255,140,.5);border-radius:16px;padding:18px;background:rgba(64,255,140,.06);text-align:center}
+.contact .btn{margin-top:10px;border-color:var(--green);color:var(--green);background:rgba(64,255,140,.08)}
+[hidden]{display:none!important}
+@media (min-width:720px){
+ .glance{grid-template-columns:repeat(3,1fr)}
+ .toc ol{grid-template-columns:1fr 1fr}
+ .sdk{grid-template-columns:1fr 1fr}
+ .hero{padding:88px 16px 120px}
+}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ html{scroll-behavior:auto}
+}
+@media print{
+ :root{--text:#111;--dim:#444}
+ body{background:#fff;color:#111;font-size:11pt}
+ body::after,.bar,.grid,.toc,.skip,.top-btn,.foot nav{display:none!important}
+ .hero{padding:0 0 12pt;text-align:left}
+ .hero::before{display:none}
+ .glitch{font-size:28pt;color:#000;text-shadow:none}
+ .glitch::before,.glitch::after{display:none}
+ .sub,.tag,.chip,.kicker{color:#000;text-shadow:none;border-color:#999;background:none}
+ .lead,b,strong,.s h2,.card h3,.h2,.chip.c,.gcard li,.s p,.s li,.card p{color:#000}
+ .meta{justify-content:flex-start}
+ a{color:#000}
+ .s h2 .n,.card .role,.gcard h3,.s h3{color:#000;border-color:#000;box-shadow:none}
+ section.s::before{background:#000;box-shadow:none}
+ .gcard,.card,.note{background:none;border-color:#999;break-inside:avoid}
+ .glance{grid-template-columns:repeat(3,1fr)}
+ .sdk{grid-template-columns:1fr 1fr}
+ .path{background:none;color:#000}
+ .ph{color:#000}
+ section.s{break-inside:auto}
+}
+</style>
+<link rel="canonical" href="https://lastamp.github.io/ja/privacy/">
+<link rel="alternate" hreflang="en" href="https://lastamp.github.io/privacy/">
+<link rel="alternate" hreflang="ru" href="https://lastamp.github.io/ru/privacy/">
+<link rel="alternate" hreflang="uk" href="https://lastamp.github.io/uk/privacy/">
+<link rel="alternate" hreflang="es" href="https://lastamp.github.io/es/privacy/">
+<link rel="alternate" hreflang="pt-BR" href="https://lastamp.github.io/pt-br/privacy/">
+<link rel="alternate" hreflang="de" href="https://lastamp.github.io/de/privacy/">
+<link rel="alternate" hreflang="fr" href="https://lastamp.github.io/fr/privacy/">
+<link rel="alternate" hreflang="ja" href="https://lastamp.github.io/ja/privacy/">
+<link rel="alternate" hreflang="x-default" href="https://lastamp.github.io/privacy/">
+
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+<header class="bar"><div class="bar-in">
+<a class="logo" href="/ja/">LAST<i>AMP</i></a>
+<nav class="langs" aria-label="言語"><a href="/privacy/" hreflang="en" lang="en" data-lang="en" title="English">EN<span class="vh"> English</span></a><a href="/ru/privacy/" hreflang="ru" lang="ru" data-lang="ru" title="Русский">RU<span class="vh"> Русский</span></a><a href="/uk/privacy/" hreflang="uk" lang="uk" data-lang="uk" title="Українська">UK<span class="vh"> Українська</span></a><a href="/es/privacy/" hreflang="es" lang="es" data-lang="es" title="Español">ES<span class="vh"> Español</span></a><a href="/pt-br/privacy/" hreflang="pt-BR" lang="pt-BR" data-lang="pt-BR" title="Português (Brasil)">PT<span class="vh"> Português (Brasil)</span></a><a href="/de/privacy/" hreflang="de" lang="de" data-lang="de" title="Deutsch">DE<span class="vh"> Deutsch</span></a><a href="/fr/privacy/" hreflang="fr" lang="fr" data-lang="fr" title="Français">FR<span class="vh"> Français</span></a><a href="/ja/privacy/" hreflang="ja" lang="ja" data-lang="ja" title="日本語" aria-current="page">JA<span class="vh"> 日本語</span></a></nav>
+</div></header>
+<main id="main"><article id="ja"><div class="hero"><div class="kicker">バッテリーは君の命</div><br><h1 class="glitch" data-text="LASTAMP">LASTAMP</h1><p class="sub">プライバシーポリシー</p><div class="meta"><span class="chip">施行日：2026年9月30日</span><span class="chip c">v1.0 · iOSアプリ＋ウェブサイト</span></div><div class="grid" aria-hidden="true"></div></div><div class="wrap"><p class="lead">Lastampは、<b>Artem</b>（以下「当方」）が開発したiPhone向けの1人用アーケードゲームです。本ポリシーでは、アプリと当方の提携先がどのようなデータを扱うのか、その目的、そしてお客様が選べることを説明します。要点：アカウントはなく、当方独自のサーバーもありません。ゲームの進行状況はお使いのiPhoneにのみ保存されます。無料版では広告が表示され、多くのゲームと同様に匿名の分析を利用しています。いずれも下記の第三者サービスによって提供されます。</p><h2 class="h2">概要</h2><div class="glance"><div class="gcard amber"><h3>収集されるもの</h3><ul><li>匿名のゲームイベント（プレイ、ウェーブ、広告視聴、購入結果）。Google Analytics for Firebaseに送信されます</li><li>Google AdMobが広告を表示するために使う端末情報と広告操作データ。広告識別子（IDFA）は<b>トラッキングを許可した場合のみ</b>使用されます</li><li>おおまかなバッテリー残量の範囲（例：「40–59%」）が匿名のゲーム分析に含まれることがあります</li></ul></div><div class="gcard green"><h3>収集されないもの</h3><ul><li>アカウント、氏名、メールアドレス、電話番号</li><li>GPS位置情報、連絡先、写真、カメラ、マイク</li><li>カード情報（支払いはすべてAppleが処理します）</li><li>お客様のデータを金銭目的で販売することは一切ありません</li></ul></div><div class="gcard cyan"><h3>お客様が選べること</h3><ul><li>iOSの確認画面でトラッキングを許可または拒否できます。<span class=path>設定 → プライバシーとセキュリティ → トラッキング</span>でいつでも変更可能です</li><li>同意フォームでパーソナライズ広告を承諾または拒否できます（EEA・英国・スイス）</li><li>ゲームのメニューまたはiOSの設定でリマインダーをオフにできます</li><li>完全版を購入するとインタースティシャル広告が表示されなくなります</li><li>アプリを削除すると、端末に保存されたデータはすべて消去されます</li></ul></div></div><nav class="toc" aria-label="目次"><h2 class="h2">目次</h2><ol><li><a href="#ja_who">当方について</a></li><li><a href="#ja_data">収集するデータとその目的</a></li><li><a href="#ja_ads">広告とトラッキング</a></li><li><a href="#ja_analytics">分析</a></li><li><a href="#ja_partners">第三者サービス</a></li><li><a href="#ja_purchases">購入</a></li><li><a href="#ja_notifications">通知</a></li><li><a href="#ja_battery">バッテリーと端末のデータ</a></li><li><a href="#ja_children">お子様について</a></li><li><a href="#ja_retention">保存期間と削除</a></li><li><a href="#ja_transfers">国際的なデータ移転</a></li><li><a href="#ja_gdpr">お客様の権利（EEA・英国・スイス）</a></li><li><a href="#ja_ccpa">カリフォルニア州およびその他の米国の州</a></li><li><a href="#ja_changes">本ポリシーの変更</a></li><li><a href="#ja_contact">お問い合わせ</a></li></ol></nav><section class="s cyan" id="ja_who" aria-labelledby="ja_who_h"><h2 id="ja_who_h"><span class="n">01</span>当方について</h2>
+<p><b>Artem</b>はLastampの開発者であり、本ポリシーに記載する個人データの「管理者」です。お問い合わせ：<a href="mailto:lastamp.app@gmail.com">lastamp.app@gmail.com</a></p>
+<p>本ポリシーはiOSアプリ「Lastamp」と本ウェブサイトに適用されます。本サイトはCookie、分析ツール、トラッカーを使用していません。選択した言語をブラウザのローカルストレージに保存するだけです。</p>
+</section><section class="s green" id="ja_data" aria-labelledby="ja_data_h"><h2 id="ja_data_h"><span class="n">02</span>収集するデータとその目的</h2>
+<ul>
+<li><b>ゲームの進行状況と設定</b>：コア、アップグレード、スキン、記録、サウンド・振動・リマインダーの設定、完全版の所有状況。お使いの端末（iOSのアプリ用ストレージ）にのみ保存され、当方に送信されることはありません。</li>
+<li><b>ローカルのプレイ記録</b>：各プレイの後、アプリは短い概要（ウェーブ、時間、開始時のバッテリー残量）を端末内の専用フォルダに保存し、最新50件を保持します。テスト中のゲーム調整に役立てるもので、外部に送信されることはありません。</li>
+<li><b>利用状況の分析</b>：ゲーム内イベント（「分析」を参照）と、端末モデル、iOSとアプリのバージョン、言語、おおよその地域、ランダムなインストールID。プレイ傾向の把握、難易度の調整、不具合の修正、広告と売上の測定に使用します。</li>
+<li><b>広告データ</b>：広告のリクエスト時、Google AdMobと提携する広告購入者は端末情報、IPアドレス、IDFV、広告の操作データを受け取り、トラッキングを許可した場合に限りIDFAも受け取ります。広告の配信と効果測定、表示頻度の制限、不正防止、そして許可がある場合の広告のパーソナライズに使用されます。</li>
+<li><b>購入状況</b>：完全版を所有しているかどうかをAppleがアプリに通知します。支払い情報やApple IDを当方が見ることはありません。</li>
+<li><b>通知の許可</b>：リマインダーを許可したかどうか。端末上でのみ使用します。</li>
+</ul>
+<p>氏名、メールアドレス、電話番号、連絡先、写真、正確な位置情報、カメラやマイクの入力、健康データ、他のアプリのデータは<b>収集しません</b>。アカウントやログインもありません。</p>
+</section><section class="s amber" id="ja_ads" aria-labelledby="ja_ads_h"><h2 id="ja_ads_h"><span class="n">03</span>広告とトラッキング</h2>
+<p>無料版では、<b>任意のリワード動画</b>（復活やコア2倍のために、見るかどうかをお客様が選べます）と、プレイの合間の<b>ときどき表示されるインタースティシャル広告</b>が表示されます。広告はGoogle AdMobが配信します。</p>
+<h3>App Tracking Transparency</h3>
+<p>iOSは、Lastampが他社のアプリやウェブサイトにまたがってお客様のアクティビティをトラッキングしてよいかを確認します。<b>「許可」</b>をタップすると、パーソナライズ広告と効果測定のためにIDFAがGoogle AdMobとその広告パートナーに提供されます。<b>「Appにトラッキングしないように要求」</b>をタップするとIDFAは提供されず、広告は表示されますが、アプリ間トラッキングに基づくパーソナライズは行われません。どちらを選んでもゲームの動作はまったく同じです。</p>
+<h3>同意（EEA・英国・スイス）</h3>
+<p>広告の読み込み前に、同意フォーム（Google User Messaging Platform。IAB Transparency &amp; Consent Frameworkに準拠）が表示され、パートナーによる端末への情報の保存・読み取りと広告のパーソナライズについて確認します。回答は端末に保存され、広告パートナーとFirebase（Google Consent Mode）に伝えられます。回答するまで、Firebaseはすべての同意を<b>「拒否」</b>として扱います。</p>
+<h3>SKAdNetwork</h3>
+<p>Appleのアトリビューションの仕組みにより、広告ネットワークはインストールが自社の広告経由であることを知ることができますが、お客様や端末は特定されません。</p>
+<h3>オプトアウトの方法</h3>
+<ul>
+<li><span class=path>設定 → プライバシーとセキュリティ → トラッキング</span>で、Lastampをオフにするか、「Appからのトラッキング要求を許可」をオフにします。</li>
+<li>同意フォームの回答を変更するには、ゲーム内の<span class=path>メニュー → プライバシー設定</span>を開く（フォームの対象地域で表示されます）か、当方にメールでご連絡ください。</li>
+<li><b>広告トラッキングの制限</b>：トラッキングがオフの場合、iOSはIDFAを隠し、Googleは広告リクエストを非パーソナライズとして扱います。</li>
+<li><b>完全版を購入する</b>：インタースティシャル広告は今後表示されなくなります。リワード動画は任意のボーナスとして残り、ボタンをタップしたときだけ再生されます。そのため広告SDKは有効なままです。</li>
+</ul>
+</section><section class="s magenta" id="ja_analytics" aria-labelledby="ja_analytics_h"><h2 id="ja_analytics_h"><span class="n">04</span>分析</h2>
+<p>当方は<b>Google Analytics for Firebase</b>（広告識別子にアクセスしない<i>FirebaseAnalyticsCore</i>パッケージ）を使用しています。当方が受け取るのは集計レポートであり、そこからお客様を特定することはできません。</p>
+<p>ゲームが送信するイベント：アプリの起動、プレイ開始（ステークの段階とおおまかなバッテリー残量の範囲）、プレイ終了（到達ウェーブ、時間、コア、死亡か中断か、完全版の有無）、ボスへの勝利と敗北、復活、リワード広告・インタースティシャル広告の表示または視聴完了、完全版オファーの表示・タップ・閉じる操作、購入の成功または失敗、チュートリアルの完了またはスキップ、ゲーム内通貨で購入したスキンとアップグレード、リマインダー許可への回答とリマインダーの開封、レビュー依頼の表示、Google AdMobから報告される広告インプレッション収益（広告ソース、フォーマット、推定額）。</p>
+<p>Firebaseは標準データも自動で記録します：初回起動、セッション、エンゲージメント時間、アプリのアップデート、アプリ内課金イベント（商品と価格。支払い情報は含みません）。GoogleはIPアドレスを使って地域を推定することがありますが、GoogleによればIPアドレスはAnalyticsに保存されません。</p>
+<p>氏名、自由入力のテキスト、連絡先が送信されることはありません。同意フォームで保存を拒否した場合、分析はGoogleの制限付き・Cookieなしのモードで動作します。</p>
+</section><section class="s red" id="ja_partners" aria-labelledby="ja_partners_h"><h2 id="ja_partners_h"><span class="n">05</span>第三者サービス</h2>
+<p>以下の提携先は、当方の委託を受けて、または独立した管理者として、各社のプライバシーポリシーに従ってデータを処理します。</p>
+<div class="sdk"><div class="card cyan"><div class="top"><h3>Google AdMob</h3><span class="role">広告</span></div><p>広告を配信します。端末・OS情報、IPアドレス、IDFV、広告の操作データ、同意の選択内容を受け取り、IDFAはお客様が許可した場合のみ受け取ります。Google LLC / Google Ireland Ltd.</p><div class="links"><a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Google プライバシーポリシー ↗</a><a href="https://policies.google.com/technologies/partner-sites" rel="noopener" target="_blank">Google のサービスを使用するサイトやアプリから収集した情報の Google による使用 ↗</a></div></div><div class="card magenta"><div class="top"><h3>Google Analytics for Firebase</h3><span class="role">分析</span></div><p>匿名のゲーム統計。上記のイベント、ランダムなインストールID、端末モデル、OSとアプリのバージョン、言語、IPアドレスから推定した地域を受け取ります。広告識別子なしで設定されています。Google LLC / Google Ireland Ltd.</p><div class="links"><a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Google プライバシーポリシー ↗</a><a href="https://firebase.google.com/support/privacy" rel="noopener" target="_blank">Firebase のプライバシー ↗</a></div></div><div class="card amber"><div class="top"><h3>Google User Messaging Platform</h3><span class="role">同意</span></div><p>EEA・英国・スイスで同意フォームを表示し（AdMob SDKとともにアプリに組み込み）、回答をIAB TCF形式で端末に保存します。</p><div class="links"><a href="https://policies.google.com/technologies/partner-sites" rel="noopener" target="_blank">Google によるアプリのデータの使用 ↗</a></div></div><div class="card green"><div class="top"><h3>Apple</h3><span class="role">プラットフォーム</span></div><p>App Storeの決済（StoreKit）、トラッキングの許可（ATT）、通知、そしてお客様を特定しない広告アトリビューションSKAdNetwork。</p><div class="links"><a href="https://www.apple.com/legal/privacy/" rel="noopener" target="_blank">Apple プライバシーポリシー ↗</a><a href="https://support.apple.com/en-us/102420" rel="noopener" target="_blank">トラッキングについて ↗</a></div></div></div>
+<p>Google AdMobは、Googleのネットワークと、Googleが取引する広告購入者の広告を配信します。AdMobのメディエーションで他の広告ネットワークを追加した場合は、ここに記載します。</p>
+</section><section class="s cyan" id="ja_purchases" aria-labelledby="ja_purchases_h"><h2 id="ja_purchases_h"><span class="n">06</span>購入</h2>
+<p>Lastampには、任意の買い切り型アプリ内課金が1つだけあります：<b>完全版</b>（<span class=path>com.lastamp.game.full</span>）。支払いはAppleが自社の規約とプライバシーポリシーに基づいて処理します。アプリが受け取るのは、所有を示すAppleの署名付き確認情報だけで、これは端末上で検証されます。「購入を復元」はApp Storeにこの確認情報を再度問い合わせるもので、当方がApple IDを見ることはありません。分析には購入の成否のみが記録され、支払い情報は含まれません。</p>
+</section><section class="s green" id="ja_notifications" aria-labelledby="ja_notifications_h"><h2 id="ja_notifications_h"><span class="n">07</span>通知</h2>
+<p>リマインダーは、お使いのiPhone上で予約される<b>ローカル通知</b>です。プッシュサーバーはなく、デバイストークンが当方や他者に送信されることはありません。まずiOSが許可を求めます。リマインダーはゲームのメニュー（リマインダー）または<span class=path>設定 → 通知 → Lastamp</span>でオフにできます。分析には、リマインダーを許可したかどうかと、リマインダーを開いたタイミングが記録されます。</p>
+</section><section class="s amber" id="ja_battery" aria-labelledby="ja_battery_h"><h2 id="ja_battery_h"><span class="n">08</span>バッテリーと端末のデータ</h2>
+<p>Lastampの中核となる仕組みとして、iOSを通じてiPhoneの<b>バッテリー残量と充電状態</b>を読み取ります。これらは端末上でリアルタイムに処理されてHP、シールド、報酬を決め、上記のローカルのプレイ記録に保存されます。</p>
+<p>正確なバッテリー残量が送信されることはありません。難易度調整のため、おおまかな範囲（20%刻みの5段階のいずれか。例：「40–59%」）が匿名のプレイ開始イベントに含まれることがあります。その他のセンサーは使用しません。</p>
+</section><section class="s magenta" id="ja_children" aria-labelledby="ja_children_h"><h2 id="ja_children_h"><span class="n">09</span>お子様について</h2>
+<p>Lastampは一般向けのゲームです。<b>13歳未満のお子様</b>、またはお住まいの国のデジタル同意年齢（EEAの一部では最大16歳）未満の方を対象としていません。米国の児童オンラインプライバシー保護法（COPPA）およびGDPRの児童の同意に関する規定に従い、お子様の個人情報を故意に収集することはありません。</p>
+<p>お子様がアプリを使用し、そのデータが当方または提携先に届いたと思われる場合は、<a href="mailto:lastamp.app@gmail.com">lastamp.app@gmail.com</a>までご連絡ください。削除をお手伝いします。</p>
+</section><section class="s red" id="ja_retention" aria-labelledby="ja_retention_h"><h2 id="ja_retention_h"><span class="n">10</span>保存期間と削除</h2>
+<ul>
+<li><b>端末上</b>：進行状況、設定、プレイ記録はアプリを削除するまで保存されます。Lastampを削除すると消去されます（iCloudやコンピュータのバックアップには、置き換えられるまでコピーが残る場合があります）。</li>
+<li><b>分析</b>：イベント単位のデータは、Google Analyticsで設定した保持期間（最長14か月）保存されます。個人を特定しない集計レポートは、それより長く保存される場合があります。</li>
+<li><b>広告パートナー</b>：Googleは同社のポリシーに従ってデータを保存します（上記リンクを参照）。</li>
+<li><b>ご請求</b>：データの開示や削除をご希望の場合は<a href="mailto:lastamp.app@gmail.com">lastamp.app@gmail.com</a>までご連絡ください。当方はお名前やアカウントを保有していないため、ご請求を提携先に転送します。データを特定するため、アプリの識別子をお伺いすることがあります。</li>
+</ul>
+<p>提携先は通信中のデータを暗号化（HTTPS）しています。</p>
+</section><section class="s cyan" id="ja_transfers" aria-labelledby="ja_transfers_h"><h2 id="ja_transfers_h"><span class="n">11</span>国際的なデータ移転</h2>
+<p>Googleは、米国およびその他の国でデータを処理します。EEA・英国・スイスからの移転は、Googleが認証を受けているEU-U.S. Data Privacy Framework（英国・スイスへの拡張を含む）に、また欧州委員会の標準契約条項に基づいて行われます。日本のお客様については、個人情報保護法に従って取り扱います。</p>
+</section><section class="s green" id="ja_gdpr" aria-labelledby="ja_gdpr_h"><h2 id="ja_gdpr_h"><span class="n">12</span>お客様の権利（EEA・英国・スイス）</h2>
+<p><b>法的根拠</b>（GDPR／UK GDPR第6条）：</p>
+<ul>
+<li><b>同意</b>（6条1項(a)）：パーソナライズ広告、端末への情報の保存・読み取り、EEA・英国での分析データの保存。同意はいつでも撤回でき、撤回前に行われた処理には影響しません。</li>
+<li><b>正当な利益</b>（6条1項(f)）：無料のゲームを支える非パーソナライズ広告の表示、不正防止、ゲームの改善とバランス調整のための集計統計。</li>
+<li><b>契約</b>（6条1項(b)）：購入した完全版の提供と復元。</li>
+</ul>
+<p><b>お客様の権利</b>：アクセス、訂正、削除、処理の制限、異議申し立て（正当な利益に基づく処理を含む）、データポータビリティ、同意の撤回。お住まいの地域のデータ保護監督機関に苦情を申し立てることもできます。当方は直接お客様を特定できるデータを保有していないため、ご請求をお客様と結び付けられない場合があります（GDPR第11条）が、必ずお手伝いし、提携先に転送します。</p>
+</section><section class="s amber" id="ja_ccpa" aria-labelledby="ja_ccpa_h"><h2 id="ja_ccpa_h"><span class="n">13</span>カリフォルニア州およびその他の米国の州</h2>
+<p>この項は、CPRAにより改正されたカリフォルニア州消費者プライバシー法（CCPA）および他の米国州の類似法に関するものです。</p>
+<ul>
+<li><b>収集するカテゴリ</b>（過去12か月）：識別子（許可された場合のIDFA、IDFV、インストールID、IPアドレス）、インターネットその他の電子ネットワーク上の活動（ゲームイベントと広告の操作）、商業情報（完全版の購入の有無）、広告パートナーがターゲティングのために導き出す推論。センシティブな個人情報は収集しません。</li>
+<li><b>取得元と目的</b>：アプリから、本ポリシーに記載の目的で収集します。</li>
+<li><b>販売と「共有」</b>：当方は個人情報を金銭目的で販売しません。ただし、トラッキングを許可した場合、クロスコンテキスト行動広告のために識別子や広告操作データを広告パートナーに提供することは<b>「共有（sharing）」</b>（州によっては「ターゲティング広告」や「販売」）に該当する場合があります。</li>
+<li><b>オプトアウト</b>：「Appにトラッキングしないように要求」をタップするか、<span class=path>設定 → プライバシーとセキュリティ → トラッキング</span>でオフにしてください。件名を「Do Not Sell or Share」として<a href="mailto:lastamp.app@gmail.com">lastamp.app@gmail.com</a>にメールすることもできます。</li>
+<li><b>お客様の権利</b>：知る権利、アクセス・削除・訂正の権利、販売・共有・ターゲティング広告のオプトアウト、権利行使を理由に差別されない権利。代理人による請求も可能です。16歳未満の消費者の個人情報を故意に販売または共有することはありません。</li>
+<li><b>保存期間</b>：「保存期間と削除」を参照してください。</li>
+</ul>
+</section><section class="s magenta" id="ja_changes" aria-labelledby="ja_changes_h"><h2 id="ja_changes_h"><span class="n">14</span>本ポリシーの変更</h2>
+<p>アプリや提携先に変更があった場合、本ポリシーを更新します。ページ上部の施行日が常に最新版を示します。重要な変更は、アップデートの説明またはアプリ内でお知らせします。</p>
+<p>本ポリシーは英語、ロシア語、ウクライナ語、スペイン語、ポルトガル語（ブラジル）、ドイツ語、フランス語、日本語で提供しています。翻訳と英語版の内容が異なる場合は、英語版が優先されます。</p>
+</section><section class="s red" id="ja_contact" aria-labelledby="ja_contact_h"><h2 id="ja_contact_h"><span class="n">15</span>お問い合わせ</h2>
+<p><b>Artem</b><br>メール：<a href="mailto:lastamp.app@gmail.com">lastamp.app@gmail.com</a></p>
+<p>30日以内の返信を心がけています。</p>
+</section></div></article></main><footer class="foot"><nav><a href="/ja/">ホーム</a><a href="/ja/privacy/">プライバシーポリシー</a><a href="/ja/support/">サポート</a><a href="mailto:lastamp.app@gmail.com">lastamp.app@gmail.com</a></nav><a class="top-btn" href="#ja">↑ ページの先頭へ</a><br><div>© 2026 Artem · Lastamp</div></footer>
+</body>
+</html>
