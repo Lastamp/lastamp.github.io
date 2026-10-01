@@ -1,18 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<script>
-(function(){
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><script>(function(){
 var A={"en":"/","ru":"/ru/","uk":"/uk/","es":"/es/","pt-BR":"/pt-br/","de":"/de/","fr":"/fr/","ja":"/ja/"},C='en',K='lastamp.lang',G='lastamp.auto';
 function put(k,v){try{localStorage.setItem(k,v)}catch(e){}}
 function norm(x){x=(x||'').toLowerCase();var l;for(l in A){if(l.toLowerCase()===x)return l}
  x=x.split('-')[0];for(l in A){if(l.toLowerCase().split('-')[0]===x)return l}return null}
 document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('a[data-lang]');
  if(!t)return;put(K,t.getAttribute('data-lang'));try{sessionStorage.setItem(G,'1')}catch(x){}});
-document.addEventListener('DOMContentLoaded',function(){var a=document.querySelector('.langs [aria-current]'),n=a&&a.parentNode;
- if(n&&n.scrollWidth>n.clientWidth)n.scrollLeft=a.offsetLeft-n.offsetLeft-(n.clientWidth-a.offsetWidth)/2});
 var first=false;try{first=!sessionStorage.getItem(G);sessionStorage.setItem(G,'1')}catch(e){first=false}
 if(C!=='en')return;
 var h='',hl=null,l;try{h=decodeURIComponent(location.hash.slice(1))}catch(e){}
@@ -23,236 +15,54 @@ var s=null;try{s=localStorage.getItem(K)}catch(e){}
 var t=s&&A[s]?s:null,n=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||''];
 for(var i=0;!t&&i<n.length;i++)t=norm(n[i]);
 if(t&&t!=='en')location.replace(A[t]+location.search);
-})();
-</script>
-<title>Lastamp — Battery is your life</title>
-<meta name="description" content="Lastamp: a neon arcade shooter for iPhone where your real battery is your life. Coming soon to the App Store.">
-<meta name="theme-color" content="#04040C">
-<meta name="color-scheme" content="dark">
-<link rel="preload" href="/fonts/tektur-latin-900.v5.3.0.woff2" as="font" type="font/woff2" crossorigin>
-<meta property="og:site_name" content="Lastamp">
-<meta property="og:title" content="Lastamp — Battery is your life">
-<meta property="og:description" content="Lastamp: a neon arcade shooter for iPhone where your real battery is your life. Coming soon to the App Store.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://lastamp.github.io/">
-<meta property="og:image" content="https://lastamp.github.io/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Lastamp — Battery is your life">
-<meta property="og:locale" content="en_US">
-<meta property="og:locale:alternate" content="ru_RU">
-<meta property="og:locale:alternate" content="uk_UA">
-<meta property="og:locale:alternate" content="es_ES">
-<meta property="og:locale:alternate" content="pt_BR">
-<meta property="og:locale:alternate" content="de_DE">
-<meta property="og:locale:alternate" content="fr_FR">
-<meta property="og:locale:alternate" content="ja_JP">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2304040C'/%3E%3Crect x='18' y='14' width='28' height='40' rx='5' fill='none' stroke='%2326F2FF' stroke-width='4'/%3E%3Crect x='26' y='8' width='12' height='6' rx='2' fill='%2326F2FF'/%3E%3Cpath d='M34 20 24 36h8l-2 12 10-16h-8z' fill='%2340FF8C'/%3E%3C/svg%3E">
-<style>@font-face{font-family:"Tektur";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/tektur-cyrillic-700.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"Tektur";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/tektur-latin-ext-700.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:"Tektur";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/tektur-latin-700.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"Tektur";font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/tektur-cyrillic-900.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"Tektur";font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/tektur-latin-ext-900.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:"Tektur";font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/tektur-latin-900.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-sans-cyrillic-400.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-sans-latin-ext-400.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-sans-latin-400.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/ibm-plex-sans-cyrillic-600.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/ibm-plex-sans-latin-ext-600.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/ibm-plex-sans-latin-600.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/jetbrains-mono-cyrillic-500.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/jetbrains-mono-latin-ext-500.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/jetbrains-mono-latin-500.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/jetbrains-mono-cyrillic-700.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/jetbrains-mono-latin-ext-700.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/jetbrains-mono-latin-700.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-:root{--bg:#04040C;--bg2:#0A0A18;--card:rgba(255,255,255,.035);--line:rgba(255,255,255,.12);
---text:rgba(255,255,255,.88);--dim:rgba(255,255,255,.66);--cyan:#26F2FF;--green:#40FF8C;--amber:#FFB31F;
---red:#FF2954;--magenta:#FF38D1;--violet:#946BFF;
---display:"Tektur","Orbitron","Eurostile","Arial Narrow",system-ui,sans-serif;
---body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
---mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;color-scheme:dark}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.65 var(--body);overflow-x:hidden}
-:lang(ja) body,body:lang(ja){font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",var(--body);line-height:1.8}
-a{color:var(--cyan);text-underline-offset:3px}
-a:hover{color:#fff}
-a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
-b,strong{color:#fff;font-weight:600}
-.ph{color:var(--amber);font-family:var(--mono);font-weight:700;font-size:.92em}
-.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;font-family:system-ui,sans-serif}
-.skip{position:absolute;left:-999px;top:8px;background:var(--cyan);color:#000;padding:8px 12px;border-radius:8px;z-index:50}
-.skip:focus{left:16px}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:40;
-background:repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0 1px,transparent 1px 3px)}
-/* top bar */
-.bar{position:sticky;top:0;z-index:30;background:rgba(4,4,12,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-border-bottom:1px solid rgba(38,242,255,.18)}
-.bar-in{max-width:1080px;margin:0 auto;padding:4px 16px;display:flex;align-items:center;gap:14px}
-.logo{font:900 17px/1 var(--display);letter-spacing:.18em;color:#fff;text-decoration:none;white-space:nowrap;
-text-shadow:0 0 10px rgba(38,242,255,.7)}
-.logo i{font-style:normal;color:var(--cyan)}
-.langs{margin-left:auto;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;min-width:0;padding:6px}
-.langs::-webkit-scrollbar{display:none}
-@media (max-width:719px){.langs{-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent);padding-right:18px}}
-.langs a{position:relative;flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;
-font:700 12px/1 var(--mono);letter-spacing:.06em;color:var(--dim);text-decoration:none;
-padding:0 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);text-transform:uppercase}
-.langs a:hover{color:#fff;border-color:rgba(38,242,255,.5)}
-.langs a[aria-current="page"]{color:#001014;background:var(--cyan);border-color:var(--cyan);box-shadow:0 0 14px rgba(38,242,255,.55)}
-/* hero */
-.hero{position:relative;overflow:hidden;text-align:center;padding:64px 16px 88px;isolation:isolate}
-.hero::before{content:"";position:absolute;inset:0;z-index:-2;
-background:radial-gradient(60% 55% at 50% 30%,rgba(38,242,255,.16),transparent 70%),
-radial-gradient(40% 40% at 80% 80%,rgba(255,56,209,.14),transparent 70%)}
-.grid{position:absolute;left:-50%;right:-50%;bottom:-2px;height:55%;z-index:-1;
-background-image:linear-gradient(rgba(255,56,209,.55) 1px,transparent 1px),linear-gradient(90deg,rgba(38,242,255,.45) 1px,transparent 1px);
-background-size:48px 48px;transform:perspective(320px) rotateX(62deg);transform-origin:50% 100%;
--webkit-mask-image:linear-gradient(to top,#000 10%,transparent 90%);mask-image:linear-gradient(to top,#000 10%,transparent 90%);
-animation:grid 2.4s linear infinite}
-@keyframes grid{to{background-position:0 48px,0 0}}
-.kicker{display:inline-block;font:700 11px/1 var(--mono);letter-spacing:.28em;color:var(--green);text-transform:uppercase;
-border:1px solid rgba(64,255,140,.5);border-radius:999px;padding:7px 12px;background:rgba(64,255,140,.08);margin-bottom:22px}
-.glitch{position:relative;display:inline-block;margin:0;font:900 clamp(46px,14vw,112px)/1 var(--display);letter-spacing:.08em;
-color:#fff;text-shadow:0 0 18px rgba(38,242,255,.75),0 0 42px rgba(38,242,255,.35)}
-.glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;pointer-events:none}
-.glitch::before{color:var(--red);transform:translate(-3px,0);mix-blend-mode:screen;opacity:.8;animation:gl1 3.2s infinite steps(1)}
-.glitch::after{color:var(--cyan);transform:translate(3px,0);mix-blend-mode:screen;opacity:.8;animation:gl2 2.7s infinite steps(1)}
-@keyframes gl1{0%,86%,100%{clip-path:inset(0 0 0 0);transform:translate(-3px,0)}88%{clip-path:inset(20% 0 55% 0);transform:translate(-9px,-2px)}91%{clip-path:inset(62% 0 8% 0);transform:translate(6px,1px)}}
-@keyframes gl2{0%,80%,100%{clip-path:inset(0 0 0 0);transform:translate(3px,0)}83%{clip-path:inset(8% 0 70% 0);transform:translate(9px,1px)}86%{clip-path:inset(45% 0 30% 0);transform:translate(-6px,-1px)}}
-.sub{margin:18px 0 0;font:700 clamp(18px,5vw,30px)/1.2 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);
-text-shadow:0 0 12px rgba(38,242,255,.55)}
-:lang(ja) .sub{letter-spacing:.06em}
-.tag{margin:14px auto 0;font:500 13px/1.4 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
-.meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.chip{font:700 11.5px/1 var(--mono);letter-spacing:.08em;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,179,31,.6);
-color:var(--amber);background:rgba(255,179,31,.08)}
-.chip.c{border-color:rgba(38,242,255,.55);color:var(--cyan);background:rgba(38,242,255,.07)}
-/* layout */
-.wrap{max-width:880px;margin:0 auto;padding:0 16px 64px}
-.lead{font-size:17.5px;color:#fff;margin:0 0 28px}
-.h2{font:900 20px/1.25 var(--display);letter-spacing:.1em;text-transform:uppercase;color:#fff;margin:0 0 14px}
-:lang(ja) .h2{letter-spacing:.04em}
-.glance{display:grid;gap:14px;grid-template-columns:1fr;margin:0 0 30px}
-.gcard{--c:var(--cyan);position:relative;border:1px solid color-mix(in srgb,var(--c) 55%,transparent);border-radius:16px;padding:18px 18px 12px;
-background:linear-gradient(180deg,color-mix(in srgb,var(--c) 10%,transparent),rgba(255,255,255,.02))}
-.gcard h3{margin:0 0 10px;font:700 13px/1.2 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--c);
-display:flex;align-items:center;gap:9px}
-.gcard h3::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--c);box-shadow:0 0 10px var(--c)}
-.gcard ul{margin:0;padding:0;list-style:none}
-.gcard li{position:relative;padding:0 0 9px 18px;font-size:15px;color:var(--text)}
-.gcard li::before{position:absolute;left:0;top:0;color:var(--c);font:700 14px/1.65 var(--mono)}
-.gcard.amber{--c:var(--amber)}.gcard.amber li::before{content:"+"}
-.gcard.green{--c:var(--green)}.gcard.green li::before{content:"\00d7"}
-.gcard.cyan{--c:var(--cyan)}.gcard.cyan li::before{content:">"}
-.toc{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card);margin:0 0 38px}
-.toc ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr;gap:2px 22px;counter-reset:t}
-.toc li{counter-increment:t}
-.toc a{display:flex;gap:10px;padding:7px 0;color:var(--text);text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.08)}
-.toc a::before{content:counter(t,decimal-leading-zero);font:700 12px/1.9 var(--mono);color:var(--cyan);flex:none}
-.toc a:hover{color:#fff}
-section.s{--c:var(--cyan);position:relative;margin:0 0 34px;padding-left:18px;scroll-margin-top:76px}
-section.s::before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:3px;border-radius:3px;
-background:linear-gradient(var(--c),transparent);box-shadow:0 0 12px var(--c)}
-section.s.green{--c:var(--green)}section.s.amber{--c:var(--amber)}section.s.magenta{--c:var(--magenta)}section.s.red{--c:var(--red)}
-.s h2{margin:0 0 12px;font:900 clamp(19px,4.6vw,24px)/1.25 var(--display);letter-spacing:.06em;color:#fff;text-transform:uppercase}
-:lang(ja) .s h2{letter-spacing:.02em}
-.s h2 .n{display:inline-block;margin-right:10px;font:700 12px/1 var(--mono);letter-spacing:.1em;color:var(--c);
-border:1px solid var(--c);border-radius:6px;padding:5px 7px;vertical-align:4px;box-shadow:0 0 10px color-mix(in srgb,var(--c) 45%,transparent)}
-.s h3{margin:18px 0 6px;font:700 15px/1.3 var(--mono);letter-spacing:.06em;color:var(--c)}
-.s p{margin:0 0 12px}
-.s ul{margin:0 0 12px;padding-left:20px}
-.s li{margin:0 0 7px}
-.s li::marker{color:var(--c)}
-.note{border:1px solid rgba(255,179,31,.45);background:rgba(255,179,31,.07);border-radius:12px;padding:12px 14px;margin:0 0 12px}
-.path{font:600 .9em var(--mono);color:#fff;background:rgba(255,255,255,.07);padding:1px 6px;border-radius:5px;white-space:normal}
-.sdk{display:grid;grid-template-columns:1fr;gap:12px;margin:6px 0 12px}
-.card{--c:var(--cyan);border:1px solid color-mix(in srgb,var(--c) 45%,transparent);border-radius:14px;padding:16px;background:rgba(0,0,0,.35)}
-.card .top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px}
-.card h3{margin:0;font:900 16px/1.2 var(--display);letter-spacing:.06em;color:#fff}
-.card .role{font:700 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--c);border:1px solid var(--c);
-border-radius:999px;padding:5px 8px;background:color-mix(in srgb,var(--c) 10%,transparent)}
-.card p{margin:0 0 8px;font-size:14.5px;color:var(--text)}
-.card .links{display:flex;flex-wrap:wrap;gap:6px 14px;font:600 13px/1.4 var(--mono)}
-.card.magenta{--c:var(--magenta)}.card.amber{--c:var(--amber)}.card.green{--c:var(--green)}.card.violet{--c:var(--violet)}
-.foot{border-top:1px solid var(--line);margin-top:40px;padding:22px 16px 40px;text-align:center;font:500 12.5px/1.7 var(--mono);color:var(--dim)}
-.foot a{color:var(--dim)}
-.foot nav{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin-bottom:8px}
-.top-btn{display:inline-block;margin-top:6px;font:700 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
-/* landing / support */
-.btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border-radius:14px;
-font:700 14px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--cyan);
-color:var(--cyan);background:rgba(38,242,255,.08)}
-.btn.fill{color:#001014;background:linear-gradient(var(--cyan),#1bb8c2);box-shadow:0 0 18px rgba(38,242,255,.45)}
-.btn:hover{color:#fff}.btn.fill:hover{color:#000}
-.store{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:10px 16px;border-radius:12px;border:1px dashed rgba(255,255,255,.35);
-font:700 13px/1.3 var(--mono);letter-spacing:.08em;color:#fff;text-transform:uppercase}
-.store .dot{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber);animation:blink 1.4s steps(2) infinite}
-@keyframes blink{50%{opacity:.25}}
-.pitch{max-width:560px;margin:18px auto 0;color:var(--dim);font-size:16px}
-.faq details{border:1px solid var(--line);border-radius:14px;background:var(--card);margin:0 0 10px;padding:0 16px}
-.faq summary{cursor:pointer;list-style:none;padding:15px 26px 15px 0;position:relative;font:600 16px/1.4 var(--body);color:#fff}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";position:absolute;right:0;top:12px;font:700 20px/1 var(--mono);color:var(--cyan)}
-.faq details[open] summary::after{content:"\2212"}
-.faq details>div{padding:0 0 14px;color:var(--text)}
-.faq p{margin:0 0 10px}
-.contact{margin-top:26px;border:1px solid rgba(64,255,140,.5);border-radius:16px;padding:18px;background:rgba(64,255,140,.06);text-align:center}
-.contact .btn{margin-top:10px;border-color:var(--green);color:var(--green);background:rgba(64,255,140,.08)}
-[hidden]{display:none!important}
-@media (min-width:720px){
- .glance{grid-template-columns:repeat(3,1fr)}
- .toc ol{grid-template-columns:1fr 1fr}
- .sdk{grid-template-columns:1fr 1fr}
- .hero{padding:88px 16px 120px}
-}
-@media (prefers-reduced-motion:reduce){
- *,*::before,*::after{animation:none!important;transition:none!important}
- html{scroll-behavior:auto}
-}
-@media print{
- :root{--text:#111;--dim:#444}
- body{background:#fff;color:#111;font-size:11pt}
- body::after,.bar,.grid,.toc,.skip,.top-btn,.foot nav{display:none!important}
- .hero{padding:0 0 12pt;text-align:left}
- .hero::before{display:none}
- .glitch{font-size:28pt;color:#000;text-shadow:none}
- .glitch::before,.glitch::after{display:none}
- .sub,.tag,.chip,.kicker{color:#000;text-shadow:none;border-color:#999;background:none}
- .lead,b,strong,.s h2,.card h3,.h2,.chip.c,.gcard li,.s p,.s li,.card p{color:#000}
- .meta{justify-content:flex-start}
- a{color:#000}
- .s h2 .n,.card .role,.gcard h3,.s h3{color:#000;border-color:#000;box-shadow:none}
- section.s::before{background:#000;box-shadow:none}
- .gcard,.card,.note{background:none;border-color:#999;break-inside:avoid}
- .glance{grid-template-columns:repeat(3,1fr)}
- .sdk{grid-template-columns:1fr 1fr}
- .path{background:none;color:#000}
- .ph{color:#000}
- section.s{break-inside:auto}
-}
-</style>
-<link rel="canonical" href="https://lastamp.github.io/">
-<link rel="alternate" hreflang="en" href="https://lastamp.github.io/">
-<link rel="alternate" hreflang="ru" href="https://lastamp.github.io/ru/">
-<link rel="alternate" hreflang="uk" href="https://lastamp.github.io/uk/">
-<link rel="alternate" hreflang="es" href="https://lastamp.github.io/es/">
-<link rel="alternate" hreflang="pt-BR" href="https://lastamp.github.io/pt-br/">
-<link rel="alternate" hreflang="de" href="https://lastamp.github.io/de/">
-<link rel="alternate" hreflang="fr" href="https://lastamp.github.io/fr/">
-<link rel="alternate" hreflang="ja" href="https://lastamp.github.io/ja/">
-<link rel="alternate" hreflang="x-default" href="https://lastamp.github.io/">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Lastamp", "operatingSystem": "iOS", "applicationCategory": "GameApplication", "url": "https://lastamp.github.io/", "inLanguage": "en", "description": "Lastamp: a neon arcade shooter for iPhone where your real battery is your life. Coming soon to the App Store.", "image": "https://lastamp.github.io/og.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="bar"><div class="bar-in">
-<a class="logo" href="/">LAST<i>AMP</i></a>
-<nav class="langs" aria-label="Language"><a href="/" hreflang="en" lang="en" data-lang="en" title="English" aria-current="page">EN<span class="vh"> English</span></a><a href="/ru/" hreflang="ru" lang="ru" data-lang="ru" title="Русский">RU<span class="vh"> Русский</span></a><a href="/uk/" hreflang="uk" lang="uk" data-lang="uk" title="Українська">UK<span class="vh"> Українська</span></a><a href="/es/" hreflang="es" lang="es" data-lang="es" title="Español">ES<span class="vh"> Español</span></a><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR" data-lang="pt-BR" title="Português (Brasil)">PT<span class="vh"> Português (Brasil)</span></a><a href="/de/" hreflang="de" lang="de" data-lang="de" title="Deutsch">DE<span class="vh"> Deutsch</span></a><a href="/fr/" hreflang="fr" lang="fr" data-lang="fr" title="Français">FR<span class="vh"> Français</span></a><a href="/ja/" hreflang="ja" lang="ja" data-lang="ja" title="日本語">JA<span class="vh"> 日本語</span></a></nav>
-</div></header>
-<main id="main"><div class="hero" style="min-height:calc(100vh - 65px);min-height:calc(100svh - 65px);display:flex;flex-direction:column;align-items:center;justify-content:center"><h1 class="glitch" data-text="LASTAMP">LASTAMP</h1><p class="sub">Battery is your life</p><div class="store"><span class="dot" aria-hidden="true"></span>Coming soon to the App Store</div><p class="pitch">A neon arcade shooter where your iPhone’s real charge is your HP. Full battery, big shield. Nearly empty, brutal damage.</p><div class="btns"><a class="btn fill" href="/privacy/">Privacy Policy</a><a class="btn" href="/support/">Support</a></div><div class="grid" aria-hidden="true"></div></div></main><footer class="foot"><nav><a href="/">Home</a><a href="/privacy/">Privacy Policy</a><a href="/support/">Support</a><a href="mailto:lastamp.app@gmail.com">lastamp.app@gmail.com</a></nav><div>© 2026 Artem · Lastamp</div></footer>
-</body>
-</html>
+})();</script><script>(function(){var R=document.documentElement;if((window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)||innerHeight<480)return;
+R.classList.add('live','wait');function go(){R.classList.remove('wait')}setTimeout(go,1000);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(go)})()</script><title>Lastamp — Your battery is your life</title><meta name="description" content="Neon arcade shooter for iPhone. Your real charge is your HP: full battery, big shield. Nearly dead, brutal damage. Coming soon."><meta name="theme-color" content="#04040C"><meta name="color-scheme" content="dark"><link rel="preload" href="/fonts/tektur-latin-900.v5.3.0.woff2" as="font" type="font/woff2" crossorigin><meta property="og:site_name" content="Lastamp"><meta property="og:title" content="Lastamp — Your battery is your life"><meta property="og:description" content="Neon arcade shooter for iPhone. Your real charge is your HP: full battery, big shield. Nearly dead, brutal damage. Coming soon."><meta property="og:type" content="website"><meta property="og:url" content="https://lastamp.github.io/"><meta property="og:image" content="https://lastamp.github.io/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Lastamp — Your battery is your life"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="ru_RU"><meta property="og:locale:alternate" content="uk_UA"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="ja_JP"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2304040C'/%3E%3Crect x='18' y='14' width='28' height='40' rx='5' fill='none' stroke='%2326F2FF' stroke-width='4'/%3E%3Crect x='26' y='8' width='12' height='6' rx='2' fill='%2326F2FF'/%3E%3Cpath d='M34 20 24 36h8l-2 12 10-16h-8z' fill='%2340FF8C'/%3E%3C/svg%3E"><link rel="canonical" href="https://lastamp.github.io/"><link rel="alternate" hreflang="en" href="https://lastamp.github.io/"><link rel="alternate" hreflang="ru" href="https://lastamp.github.io/ru/"><link rel="alternate" hreflang="uk" href="https://lastamp.github.io/uk/"><link rel="alternate" hreflang="es" href="https://lastamp.github.io/es/"><link rel="alternate" hreflang="pt-BR" href="https://lastamp.github.io/pt-br/"><link rel="alternate" hreflang="de" href="https://lastamp.github.io/de/"><link rel="alternate" hreflang="fr" href="https://lastamp.github.io/fr/"><link rel="alternate" hreflang="ja" href="https://lastamp.github.io/ja/"><link rel="alternate" hreflang="x-default" href="https://lastamp.github.io/"><script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Lastamp","operatingSystem":"iOS","applicationCategory":"GameApplication","url":"https://lastamp.github.io/","inLanguage":"en","description":"Neon arcade shooter for iPhone. Your real charge is your HP: full battery, big shield. Nearly dead, brutal damage. Coming soon.","image":"https://lastamp.github.io/og.png","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><style>@font-face{font-family:"Tektur";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/tektur-cyrillic-700.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:"Tektur";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/tektur-latin-ext-700.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"Tektur";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/tektur-latin-700.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"Tektur";font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/tektur-cyrillic-900.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:"Tektur";font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/tektur-latin-ext-900.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"Tektur";font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/tektur-latin-900.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-sans-cyrillic-400.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-sans-latin-ext-400.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-sans-latin-400.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/ibm-plex-sans-cyrillic-600.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/ibm-plex-sans-latin-ext-600.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/ibm-plex-sans-latin-600.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/jetbrains-mono-cyrillic-500.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/jetbrains-mono-latin-ext-500.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/jetbrains-mono-latin-500.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/jetbrains-mono-cyrillic-700.v5.3.0.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/jetbrains-mono-latin-ext-700.v5.3.0.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/jetbrains-mono-latin-700.v5.3.0.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style><style>.home .bar{position:absolute;top:0;left:0;right:0}.run{position:relative}.stage{text-align:center;isolation:isolate;flex-direction:column;justify-content:center;align-items:center;padding:92px 16px 40px;display:flex;position:relative;overflow:hidden}.stage:before{content:"";z-index:-2;pointer-events:none;background:radial-gradient(50% 42% at 50% 58%,rgba(var(--c-rgb),.14),transparent 72%), radial-gradient(120% 60% at 50% 0%,rgba(var(--c-rgb),.05),transparent 60%);position:absolute;inset:0}.kicker{font:700 11px/1.4 var(--mono);letter-spacing:.3em;text-transform:uppercase;color:var(--c);margin:0 0 16px}:lang(ja) .kicker{letter-spacing:.12em}h1{max-width:7.6em;font:900 clamp(32px,min(9.6vw,9.4svh),78px)/1.02 var(--display);letter-spacing:.02em;color:#fff;text-transform:uppercase;text-wrap:balance;text-shadow:0 0 24px rgba(var(--c-rgb),.42),0 0 2px rgba(var(--c-rgb),.6);margin:0}:lang(ja) h1{letter-spacing:.04em;max-width:none;font-weight:800;line-height:1.2}.sub{max-width:17em;color:var(--dim);text-wrap:pretty;margin:18px auto 0;font-size:clamp(15px,1.6vw,18px);line-height:1.5}.if-live{display:none}.live .if-live{display:inline}.live .if-static{display:none}.bat{--l:1;--g:1;flex:none;align-items:center;gap:5em;display:flex}.bat .body{border:4em solid var(--c);width:240em;height:108em;box-shadow:0 0 calc(8em*var(--g)) rgba(var(--c-rgb),.9),0 0 calc(26em*var(--g)) rgba(var(--c-rgb),.45),inset 0 0 calc(10em*var(--g)) rgba(var(--c-rgb),.3);background:#00000040;border-radius:22em;position:relative}.bat .fill{width:calc(220em*var(--l));background:linear-gradient(var(--c),rgba(var(--c-rgb),.42));border-radius:13em;position:absolute;top:6em;bottom:6em;left:6em}.bat .term{background:var(--c);width:12em;height:40em;box-shadow:0 0 calc(10em*var(--g)) rgba(var(--c-rgb),.8);border-radius:5em}.bat .pct{color:#fff;font-variant-numeric:tabular-nums;text-shadow:0 0 .14em #000000e6,0 0 .05em #000000e6;justify-content:center;align-items:center;font:900 42em/1 Tektur,Arial Narrow,system-ui,sans-serif;display:flex;position:absolute;inset:0}.bat.empty .body{box-shadow:none;border-color:#ff295480}.bat.empty .term{box-shadow:none;background:#ff295480}.bat.empty .pct{color:var(--red)}.bolt{justify-content:center;align-items:center;display:flex;position:absolute;inset:0}.bolt svg{filter:drop-shadow(0 0 4px #000c);width:44em;height:60em}.scene{flex-direction:column;align-items:center;display:none}.live .scene{display:flex}.scene .bat{margin:clamp(26px,5.5svh,54px) 0 0;font-size:min(.389105vw - .217899px,1.62px,.19svh)}.caps{justify-items:center;width:min(100%,19em);margin:clamp(20px,3.6svh,34px) auto 0;transition:opacity .25s;display:grid}.cap{opacity:0;visibility:hidden;color:var(--text);text-wrap:pretty;grid-area:1/1;margin:0;font-size:clamp(15px,1.6vw,18px);line-height:1.45}.cap.on{opacity:1;visibility:visible}.cap b{font:900 clamp(21px,3.2vw,34px)/1.1 var(--display);letter-spacing:.05em;color:var(--c);text-shadow:0 0 14px rgba(var(--c-rgb),.5);margin-bottom:6px;display:block}:lang(ja) .cap b{letter-spacing:.08em;font-weight:800}.between .caps{opacity:.28}.cap.in{animation:.4s cubic-bezier(.22,1,.36,1) capin}@keyframes capin{0%{opacity:0;transform:translateY(8px)}}.cap.glitch b{animation:.7s step-end gl}@keyframes gl{0%{text-shadow:3px 0 var(--cyan),-3px 0 var(--red);transform:translate(-6px)}20%{clip-path:inset(30% 0 35%);transform:translate(5px,-2px)}40%{clip-path:inset(55% 0 5%);transform:translate(-3px,1px)}60%{clip-path:none;text-shadow:2px 0 var(--cyan),-2px 0 var(--red);transform:translate(2px)}to{transform:none}}.bat.flick{animation:.6s step-end flick}@keyframes flick{0%{opacity:1}20%{opacity:.3}40%{opacity:1}60%{opacity:.35}to{opacity:1}}.scale{font:700 11px/1 var(--mono);letter-spacing:.08em;justify-content:center;gap:6px;margin:clamp(14px,2.4svh,22px) 0 0;padding:0;list-style:none;display:flex}.scale li{color:#ffffff85;border-top:2px solid #ffffff24;min-width:40px;padding:8px 0 0;transition:color .3s,border-color .3s}.scale li.past{color:#ffffffa8;border-color:#ffffff4d}.scale li.on{color:var(--c);border-color:var(--c);box-shadow:0 -4px 10px -4px rgba(var(--c-rgb),.9)}.stage h1,.stage .sub{transition:opacity .6s,text-shadow .6s}.dead h1{opacity:.42;text-shadow:none}.dead .bat .body{box-shadow:none;border-color:#ff295466}.dead .bat .term{box-shadow:none;background:#ff295466}.dead .bat .pct{color:var(--red)}.grid{z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(var(--c-rgb),.4) 1px,transparent 1px),linear-gradient(90deg,rgba(var(--c-rgb),.3) 1px,transparent 1px);transform-origin:50% 100%;background-size:52px 52px;height:40%;display:none;position:absolute;bottom:-2px;left:-50%;right:-50%;transform:perspective(300px)rotateX(64deg);-webkit-mask-image:linear-gradient(#0000 15%,#000 95%);mask-image:linear-gradient(#0000 15%,#000 95%)}.hint{border:1.5px solid #ffffff59;border-radius:12px;width:22px;height:34px;margin-left:-11px;transition:opacity .3s;display:none;position:absolute;bottom:20px;left:50%}.hint:after{content:"";background:#fff;border-radius:2px;width:3px;height:7px;margin-left:-1.5px;animation:1.8s ease-in-out infinite hint;position:absolute;top:7px;left:50%}@keyframes hint{60%{opacity:0;transform:translateY(10px)}to{opacity:0}}.live .run{height:520svh}.live .stage{height:100svh;min-height:0;position:sticky;top:0}.live .grid,.live .hint{display:block}.stops{gap:28px;max-width:600px;margin:0 auto;padding:12px 16px 24px;list-style:none;display:grid}.stops li{grid-template-columns:auto 1fr;align-items:center;gap:20px;display:grid}.stops .bat{font-size:.44px}.stops .txt p{color:var(--text);margin:0;font-size:15.5px;line-height:1.45}.stops .txt .lab{font:900 18px/1.2 var(--display);letter-spacing:.05em;color:var(--c);margin-bottom:2px}.stops .txt.lost .lab{color:var(--red)}:lang(ja) .stops .txt .lab{font-weight:800}.live .stops{clip:rect(0 0 0 0);clip-path:inset(50%);border:0;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;position:absolute!important}.after{--c:var(--green);--c-rgb:64,255,140;max-width:var(--wrap);margin:0 auto;padding:clamp(64px,10vw,128px) 16px 0;position:relative}.feats{grid-template-columns:1fr;gap:36px 40px;margin:0;padding:0;list-style:none;display:grid}.feats li{border-top:1px solid #ffffff1f;padding-top:20px;position:relative}.feats li:before{content:"";background:var(--c);width:32px;height:2px;box-shadow:0 0 10px var(--c);position:absolute;top:-1px;left:0}.feats h2{font:700 19px/1.2 var(--display);letter-spacing:.07em;text-transform:uppercase;color:#fff;margin:0 0 10px}:lang(ja) .feats h2{letter-spacing:.06em;font-weight:800}.feats p{color:var(--dim);max-width:19em;margin:0;font-size:16px;line-height:1.55}.cta{text-align:center;flex-direction:column;align-items:center;gap:26px;padding:clamp(88px,12vw,156px) 0 clamp(72px,10vw,124px);display:flex}.cta .bat{font-size:.6px}.cta .fill.charge{animation:2.6s cubic-bezier(.22,1,.36,1) 3 both chg}@keyframes chg{0%{width:35.2em}70%,to{width:136.4em}}.soon{max-width:10em;font:900 clamp(24px,4.4vw,42px)/1.12 var(--display);letter-spacing:.05em;text-transform:uppercase;color:#fff;text-wrap:balance;text-shadow:0 0 18px rgba(var(--c-rgb),.42);margin:0}:lang(ja) .soon{letter-spacing:.04em;font-weight:800}@media (width>=760px){.feats{grid-template-columns:1fr 1fr}.stops .bat{font-size:.5px}}@media (width>=1080px){.feats{grid-template-columns:repeat(4,1fr)}.feats p{font-size:15.5px}}.cta{isolation:isolate;position:relative}.cta:before{content:"";z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(var(--c-rgb),.1),transparent);width:min(720px,100%);height:420px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}@media (height<=640px){.live .hint{display:none}}.wait .scene{visibility:hidden}.live .stage{justify-content:flex-start;padding-top:clamp(84px,13svh,132px);padding-bottom:clamp(40px,7svh,72px)}.live .scene{margin:auto 0}@media (width>=760px){h1{font-size:clamp(32px,min(9.6vw,8.6svh),78px)}.sub{max-width:22em}.caps{width:min(100%,25em)}.scene .bat{font-size:min(.389105vw - .217899px,1.5px,.165svh)}.live .stage{padding-top:clamp(84px,12svh,128px);padding-bottom:clamp(48px,8svh,84px)}}@media (width<=759px) and (height>=740px){.live .stage{padding-top:17svh}}
+:root{--bg:#04040c;--bg2:#0a0a18;--text:#ffffffe0;--dim:#ffffffa8;--line:#ffffff1f;--cyan:#26f2ff;--green:#40ff8c;--amber:#ffb31f;--red:#ff2954;--magenta:#ff38d1;--c:#26f2ff;--c-rgb:38,242,255;--display:"Tektur","Arial Narrow",system-ui,sans-serif;--body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;--jp:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP","Noto Sans CJK JP",sans-serif;--wrap:1120px;color-scheme:dark}:lang(ja){--display:var(--jp);--body:var(--jp)}*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--bg)}body{background:var(--bg);min-height:100vh;color:var(--text);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased;flex-direction:column;margin:0;display:flex;overflow-x:hidden}body>main{flex:1 0 auto}:lang(ja) body{line-height:1.8}a{color:var(--c);text-underline-offset:3px;text-decoration-thickness:1px}a:hover{color:#fff}:focus-visible{outline-offset:3px;border-radius:6px;outline:2px solid #fff}b,strong{color:#fff;font-weight:600}h1,h2,h3{overflow-wrap:break-word;hyphens:manual}.vh{clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;position:absolute!important}.skip{color:#000;z-index:60;font:700 14px/1 var(--mono);background:#fff;border-radius:8px;padding:10px 14px;text-decoration:none;position:absolute;top:10px;left:-999px}.skip:focus{left:16px}body:after{content:"";pointer-events:none;z-index:50;background:repeating-linear-gradient(0deg,#ffffff04 0 1px,#0000 1px 3px);position:fixed;inset:0}.bar{z-index:30;width:100%;max-width:var(--wrap);justify-content:space-between;align-items:center;gap:16px;margin:0 auto;padding:14px 16px;display:flex;position:relative}.logo{letter-spacing:.2em;color:#fff;min-height:44px;text-shadow:0 0 10px rgba(var(--c-rgb),.6);align-items:center;font:900 16px/1 Tektur,Arial Narrow,system-ui,sans-serif;text-decoration:none;display:inline-flex}.logo i{color:var(--c);font-style:normal}.logo:hover{color:#fff}.lang{position:relative}.lang summary{cursor:pointer;min-width:44px;min-height:44px;font:700 12px/1 var(--mono);letter-spacing:.08em;color:#fffc;backdrop-filter:blur(8px);background:#04040c8c;border:1px solid #ffffff2e;border-radius:999px;justify-content:center;align-items:center;gap:8px;padding:0 14px;list-style:none;transition:border-color .2s,color .2s;display:inline-flex}.lang summary::-webkit-details-marker{display:none}.lang summary:hover,.lang[open] summary{color:#fff;border-color:rgba(var(--c-rgb),.65)}.lang summary svg{transition:transform .2s}.lang[open] summary svg{transform:rotate(180deg)}.lang summary:focus-visible{border-radius:999px}.lang ul{z-index:40;background:#0a0a18;border:1px solid #ffffff24;border-radius:16px;min-width:228px;margin:0;padding:6px;list-style:none;position:absolute;top:calc(100% + 8px);right:0;box-shadow:0 18px 50px #0009,0 0 0 1px #0006}.lang li a{min-height:44px;font:500 15px/1.2 var(--body);color:var(--text);border-radius:10px;align-items:center;gap:14px;padding:0 12px;text-decoration:none;display:flex}.lang li a:lang(ja){font-family:var(--jp)}.lang li a:hover{color:#fff;background:#ffffff0f}.lang li a:focus-visible{outline-offset:-2px}.lang .code{width:2.4em;font:700 11px/1 var(--mono);letter-spacing:.08em;color:#ffffff9e;flex:none}.lang a[aria-current=page]{color:#fff;background:rgba(var(--c-rgb),.1)}.lang a[aria-current=page] .code{color:var(--c)}.lang a[aria-current=page]:after{content:"";background:var(--c);width:7px;height:7px;box-shadow:0 0 8px var(--c);border-radius:50%;margin-left:auto}.foot{width:100%;max-width:var(--wrap);font:500 12.5px/1.7 var(--mono);color:var(--dim);text-align:center;border-top:1px solid #ffffff1a;margin:0 auto;padding:32px 16px 44px}.foot .trust{color:#ffffffd1;font:400 14px/1.5 var(--body);margin:0 0 10px}.foot nav{flex-wrap:wrap;justify-content:center;gap:0 22px;display:flex}.foot nav a{color:var(--dim);padding:11px 0;display:inline-block}.foot nav a:hover,.foot nav a[aria-current=page]{color:#fff}.foot .copy{margin:4px 0 0}[hidden]{display:none!important}@media (prefers-reduced-motion:reduce){*,:before,:after{transition:none!important;animation:none!important}html{scroll-behavior:auto}}@media print{body:after,.bar .lang,.skip{display:none!important}body{color:#111;background:#fff}}
+</style></head> <body class="home"> <a class="skip" href="#main">Skip to content</a> <header class="bar"> <a class="logo" href="/">LAST<i>AMP</i></a> <details class="lang" data-langmenu> <summary><span class="vh">Language: </span>EN<svg aria-hidden="true" viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary> <ul> <li><a href="/" hreflang="en" lang="en" data-lang="en" aria-current="page"><span class="code" aria-hidden="true">EN</span>English</a></li><li><a href="/ru/" hreflang="ru" lang="ru" data-lang="ru"><span class="code" aria-hidden="true">RU</span>Русский</a></li><li><a href="/uk/" hreflang="uk" lang="uk" data-lang="uk"><span class="code" aria-hidden="true">UK</span>Українська</a></li><li><a href="/es/" hreflang="es" lang="es" data-lang="es"><span class="code" aria-hidden="true">ES</span>Español</a></li><li><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR" data-lang="pt-BR"><span class="code" aria-hidden="true">PT</span>Português (Brasil)</a></li><li><a href="/de/" hreflang="de" lang="de" data-lang="de"><span class="code" aria-hidden="true">DE</span>Deutsch</a></li><li><a href="/fr/" hreflang="fr" lang="fr" data-lang="fr"><span class="code" aria-hidden="true">FR</span>Français</a></li><li><a href="/ja/" hreflang="ja" lang="ja" data-lang="ja"><span class="code" aria-hidden="true">JA</span>日本語</a></li> </ul> </details> </header>  <main id="main"> <section class="run" id="run" aria-labelledby="h1"> <div class="stage" id="stage"> <p class="kicker">Neon arcade · iPhone</p> <h1 id="h1">Your battery is your life.</h1> <p class="sub"><span class="if-live">Lastamp runs on your iPhone’s real charge. Scroll and watch it drain.</span><span class="if-static">Lastamp runs on your iPhone’s real charge. Here’s how it changes the fight.</span></p> <div class="scene" aria-hidden="true"> <div class="bat" id="bat" style="--l:1" aria-hidden="true"> <div class="body"><i class="fill"></i><span class="pct">100%</span></div><i class="term"></i> </div> <div class="caps" id="caps"> <p class="cap on"><b>FULL POWER</b><span>Big shield, shrapnel spray. Safe, and it pays the least.</span></p><p class="cap"><b>STABLE</b><span>Twin shots. Every core ×1.3.</span></p><p class="cap"><b>DESPERATION</b><span>Thin shield. Single heavy shots that pierce. Cores ×2.5.</span></p><p class="cap"><b>LAST CHARGE</b><span>Every core ×4. One last breath.</span></p><p class="cap lost"><b>SIGNAL LOST</b></p> </div> <ol class="scale" id="scale"><li class="on">100</li><li>50</li><li>9</li><li>3</li><li>0</li></ol> </div> <div class="hint" id="hint" aria-hidden="true"></div> <div class="grid" id="grid" aria-hidden="true"></div> </div> <ol class="stops"> <li style="--c:rgb(38,242,255);--c-rgb:38,242,255"> <div class="bat" style="--c:rgb(38,242,255);--c-rgb:38,242,255;--l:1" role="img" aria-label="Battery charge: 100%"> <div class="body"><i class="fill"></i><span class="pct">100%</span></div><i class="term"></i> </div> <div class="txt"><p class="lab">FULL POWER</p><p>Big shield, shrapnel spray. Safe, and it pays the least.</p></div> </li><li style="--c:rgb(122,232,107);--c-rgb:122,232,107"> <div class="bat" style="--c:rgb(122,232,107);--c-rgb:122,232,107;--l:0.5" role="img" aria-label="Battery charge: 50%"> <div class="body"><i class="fill"></i><span class="pct">50%</span></div><i class="term"></i> </div> <div class="txt"><p class="lab">STABLE</p><p>Twin shots. Every core ×1.3.</p></div> </li><li style="--c:rgb(255,48,81);--c-rgb:255,48,81"> <div class="bat" style="--c:rgb(255,48,81);--c-rgb:255,48,81;--l:0.09" role="img" aria-label="Battery charge: 9%"> <div class="body"><i class="fill"></i><span class="pct">9%</span></div><i class="term"></i> </div> <div class="txt"><p class="lab">DESPERATION</p><p>Thin shield. Single heavy shots that pierce. Cores ×2.5.</p></div> </li><li style="--c:rgb(255,41,84);--c-rgb:255,41,84"> <div class="bat" style="--c:rgb(255,41,84);--c-rgb:255,41,84;--l:0.03" role="img" aria-label="Battery charge: 3%"> <div class="body"><i class="fill"></i><span class="pct">3%</span></div><i class="term"></i> </div> <div class="txt"><p class="lab">LAST CHARGE</p><p>Every core ×4. One last breath.</p></div> </li><li style="--c:rgb(255,41,84);--c-rgb:255,41,84"> <div class="bat empty" style="--c:rgb(255,41,84);--c-rgb:255,41,84;--l:0" role="img" aria-label="Battery charge: 0%"> <div class="body"><i class="fill"></i><span class="pct">0%</span></div><i class="term"></i> </div> <div class="txt lost"><p class="lab">SIGNAL LOST</p></div> </li> </ol> </section> <div class="after"> <ul class="feats"> <li><h2>Charge is HP</h2><p>More charge, more HP and shield. Less charge, harder and faster hits.</p></li><li><h2>Stake your charge</h2><p>Start low and every core pays more: up to ×4.</p></li><li><h2>Your finger fires</h2><p>No auto-fire, no auto-aim. Tap, hold, drag.</p></li><li><h2>Enemies think</h2><p>They read your aim and warn right before they strike.</p></li> </ul> <div class="cta"> <div class="bat" style="--l:0.62" aria-hidden="true"> <div class="body"><i class="fill charge"></i><span class="bolt"><svg viewBox="0 0 22 30" width="22" height="30" aria-hidden="true"><path d="M13 0 0 17h8l-3 13L20 11h-8z" fill="#fff"></path></svg></span></div><i class="term"></i> </div> <p class="soon">Coming soon to the App Store</p> </div> </div> </main>  <footer class="foot"> <p class="trust">No accounts. Progress stays on your iPhone.</p> <nav> <a href="/" aria-current="page">Home</a> <a href="/privacy/">Privacy Policy</a> <a href="/support/">Support</a> <a href="mailto:lastamp.app@gmail.com">lastamp.app@gmail.com</a> </nav> <p class="copy">© 2026 Artem · Lastamp</p> </footer> <script>(function(){var d=document.querySelector('[data-langmenu]');if(!d)return;var s=d.querySelector('summary');
+function L(){return [].slice.call(d.querySelectorAll('a'))}
+function close(f){if(!d.open)return;d.open=false;if(f)s.focus()}
+d.addEventListener('keydown',function(e){var a=L(),i=a.indexOf(document.activeElement);
+ if(e.key==='Escape'){close(true);e.preventDefault()}
+ else if(e.key==='ArrowDown'||e.key==='ArrowUp'){if(!d.open)d.open=true;var n=e.key==='ArrowDown'?i+1:i<0?a.length-1:i-1;
+  a[(n+a.length)%a.length].focus();e.preventDefault()}});
+document.addEventListener('click',function(e){if(!d.contains(e.target))close(false)});
+d.addEventListener('focusout',function(e){if(e.relatedTarget&&!d.contains(e.relatedTarget))close(false)});
+})();</script> <script>(function(){
+var R=document.documentElement;if(!R.classList.contains('live'))return;
+var P=[[0.08,[255,41,84]],[0.27,[255,179,31]],[0.6,[64,255,140]],[0.9,[38,242,255]]];
+function shield(l){if(l<=P[0][0])return P[0][1];var z=P[P.length-1];if(l>=z[0])return z[1];
+ for(var i=1;i<P.length;i++)if(l<=P[i][0]){var a=P[i-1],b=P[i],k=(l-a[0])/(b[0]-a[0]);
+  return [0,1,2].map(function(j){return Math.round(a[1][j]+(b[1][j]-a[1][j])*k)})}return z[1]}
+function $(i){return document.getElementById(i)}
+var run=$('run'),stage=$('stage'),bat=$('bat'),pct=bat.querySelector('.pct'),fill=bat.querySelector('.fill'),
+ caps=$('caps').children,sc=$('scale').children,hint=$('hint'),grid=$('grid');
+// scroll progress → level: holds at 100 / 50 / 9 / 3 / 0, quick drains between them
+var K=[[0,1],[.1,1],[.22,.5],[.34,.5],[.47,.09],[.57,.09],[.66,.03],[.77,.03],[.86,0],[1,0]];
+function lvl(p){for(var i=1;i<K.length;i++)if(p<=K[i][0]){var a=K[i-1],b=K[i];return a[1]+(b[1]-a[1])*((p-a[0])/(b[0]-a[0]||1))}return 0}
+function bpm(l){return l>=.8?60:l>=.4?71:l>=.15?97:130} // heart tempo by mode (DESIGN_SYSTEM §8)
+var shown=0,d=1,target=1,dead=false,vis=true,rgb='',lastF=0,t0=performance.now();
+function prog(){var r=run.getBoundingClientRect(),h=run.offsetHeight-innerHeight;return Math.min(1,Math.max(0,-r.top/(h||1)))}
+function pulse(el,c,ms){el.classList.remove(c);void el.offsetWidth;el.classList.add(c);setTimeout(function(){el.classList.remove(c)},ms)}
+function setCap(i){caps[shown].classList.remove('on');shown=i;caps[i].classList.add('on');pulse(caps[i],'in',400);
+ if(i===4){pulse(caps[i],'glitch',700);pulse(bat,'flick',600)}}
+function onScroll(){var p=prog(),h=-1,i;target=lvl(p);
+ for(i=0;i<5;i++)if(p>=K[2*i][0]-1e-6)h=i;var hold=p<=K[2*h+1][0]+1e-6;
+ if(hold&&h!==shown)setCap(h);
+ stage.classList.toggle('between',!hold);
+ for(i=0;i<5;i++)sc[i].className=i===h&&hold?'on':i<=h?'past':'';
+ hint.style.opacity=p>.02?0:'';grid.style.backgroundPositionY=(p*1400).toFixed(1)+'px'}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);
+if('IntersectionObserver'in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(run);
+function frame(now){requestAnimationFrame(frame);if(!vis)return;
+ d+=(target-d)*.16;if(Math.abs(target-d)<.0008)d=target;
+ var n=Math.round(d*100),z=n===0&&target===0,c=shield(d).join(',');
+ if(z!==dead){dead=z;stage.classList.toggle('dead',z)}
+ if(c!==rgb){rgb=c;R.style.setProperty('--c','rgb('+c+')');R.style.setProperty('--c-rgb',c)}
+ bat.style.setProperty('--l',d.toFixed(4));pct.textContent=n+'%';
+ // lub-dub glow at the hero's heart rate; under 15 % the fill dips like the in-game shield (at most ~1 dip/s)
+ var g=0,f=1;if(!z){var s=(((now-t0)/1000*bpm(d)/60)%1)*60/bpm(d);
+  g=1+.55*Math.exp(-s*18)+(s>.21?.3*Math.exp(-(s-.21)*18):0);
+  if(d<.15&&now-lastF>900&&Math.random()<.04)lastF=now;if(now-lastF<90)f=.4}
+ bat.style.setProperty('--g',g.toFixed(3));fill.style.opacity=f}
+onScroll();requestAnimationFrame(frame);
+})();</script> </body> </html>
