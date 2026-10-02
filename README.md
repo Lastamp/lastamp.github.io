@@ -32,8 +32,8 @@ Don't hand-edit anything in `site/` except this README: the next build replaces 
 
 ## 1. Contact and developer
 
-Contact: **lastamp.app@gmail.com** · developer: **Artem** — set in `web/src/i18n/index.ts` (`CONTACT`, `DEVELOPER`).
-The developer name should match the seller name shown in App Store Connect; if it differs, change `DEVELOPER` and rebuild.
+Contact: **lastamp.app@gmail.com** — set in `web/src/i18n/index.ts` (`CONTACT`); footer «© {year} Lastamp Team» — `web/src/layouts/Base.astro`.
+Privacy/Terms name the developer as «the Lastamp team» (texts in `web/src/i18n/privacy/`, `terms/`); keep it consistent with the seller name in App Store Connect.
 
 ## 2. Create the GitHub repo
 
