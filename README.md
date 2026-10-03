@@ -1,4 +1,9 @@
-# lastamp.github.io: publishing the site
+# lastamp.app: publishing the site
+
+> **Since 03.10.2026 the site lives on its own domain https://lastamp.app.** The repo is still `Lastamp/lastamp.github.io`
+> on GitHub Pages; `site/CNAME` (from `web/public/CNAME`) = `lastamp.app`. DNS at the registrar: apex `A` → 185.199.108.153 /
+> .109.153 / .110.153 / .111.153 (`AAAA` 2606:50c0:8000::153 … 8003::153), `www` `CNAME` → `lastamp.github.io`. GitHub → repo
+> Settings → Pages → Custom domain = `lastamp.app`, then **Enforce HTTPS**. The old lastamp.github.io redirects automatically.
 
 Static site for Lastamp: landing page, Privacy Policy, Support and a 404 page, in 8 languages (en, ru, uk, es, pt-BR, de, fr, ja).
 **One language per page.** English stays at the URLs the app and App Store Connect use (`/`, `/privacy/`, `/support/`, also the
@@ -37,7 +42,7 @@ Privacy/Terms name the developer as «the Lastamp team» (texts in `web/src/i18n
 
 ## 2. Create the GitHub repo
 
-1. Sign in to GitHub. To get `https://lastamp.github.io/`, the **account or organisation must be named `lastamp`**:
+1. Sign in to GitHub. To get `https://lastamp.github.io/` (now redirecting to lastamp.app), the **account or organisation must be named `lastamp`**:
    create a free organisation `lastamp` (github.com → + → New organization), or use your own account. The site will then live at
    `https://<account>.github.io/`, and every URL below changes to match.
 2. Create a **public** repository named **exactly** `lastamp.github.io` (`<account>.github.io` for another account).
@@ -58,21 +63,21 @@ git push -u origin main
 ## 3. Turn on Pages
 
 Repo → **Settings → Pages** → Source: **Deploy from a branch** → Branch: **main**, folder **/ (root)** → Save.
-Wait about 1 minute, then open https://lastamp.github.io/privacy/ and https://lastamp.github.io/ru/privacy/, check that
-`https://lastamp.github.io/privacy/#ru` lands on `/ru/privacy/`, that https://lastamp.github.io/sitemap.xml and `/robots.txt` open, and that
+Wait about 1 minute, then open https://lastamp.app/privacy/ and https://lastamp.app/ru/privacy/, check that
+`https://lastamp.app/privacy/#ru` lands on `/ru/privacy/`, that https://lastamp.app/sitemap.xml and `/robots.txt` open, and that
 a wrong URL gives the styled 404. Optionally submit the sitemap in Google Search Console.
 Tick **Enforce HTTPS** if it is shown.
 
 ## 4. Wire it into the app and the store
 
-- `Config/Lastamp-Info.plist` → `LastampPrivacyPolicyURL` = `https://lastamp.github.io/privacy/`
+- `Config/Lastamp-Info.plist` → `LastampPrivacyPolicyURL` = `https://lastamp.app/privacy/`
   (the in-app menu link uses it; put the same URL into the AdMob GDPR message: AdMob → Privacy & messaging).
-- `web/public/app-ads.txt` → `site/app-ads.txt` (served at `https://lastamp.github.io/app-ads.txt`): AdMob checks it on the developer website listed
+- `web/public/app-ads.txt` → `site/app-ads.txt` (served at `https://lastamp.app/app-ads.txt`): AdMob checks it on the developer website listed
   in the App Store. Replace `pub-XXXXXXXXXXXXXXXX` with your AdMob publisher ID (AdMob → Settings → Account information),
   keep `f08c47fec0942fa0` (Google's certification ID). The file must stay at the site root, not in a subfolder.
   The build copies it unchanged.
-- App Store Connect → App Information → **Privacy Policy URL** = the same URL; **Support URL** = `https://lastamp.github.io/support/`;
-  Marketing URL (optional) = `https://lastamp.github.io/`.
+- App Store Connect → App Information → **Privacy Policy URL** = the same URL; **Support URL** = `https://lastamp.app/support/`;
+  Marketing URL (optional) = `https://lastamp.app/`.
 - App Privacy answers: `docs/store/app-privacy.md`.
 
 ## Updating
